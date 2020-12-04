@@ -4,8 +4,10 @@
   display: inline-block;
   margin-right: 2rem;
   & > a {
-    padding: 5px;
+    padding: 0.5rem;
     transition: color 0.5s;
+    font-size: 2rem;
+    font-weight: 700;
     &:hover {
       color: $color-primary;
     }
@@ -38,10 +40,11 @@
   backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
   -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
     brightness(140%);
-  box-shadow: 0 0 5px #898989;
+  box-shadow: 0 0 0.5rem #898989;
+  z-index: 1;
 }
 .navBar__itemSub > a {
-  padding: 5px;
+  padding: 0.5rem;
   transition: color 0.5s;
   &:hover {
     color: $color-primary;

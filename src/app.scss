@@ -1,0 +1,5 @@
+@import "scss/varible.scss";
+.main__header {
+  @include flex(space-between, center);
+  height: 10rem;
+}

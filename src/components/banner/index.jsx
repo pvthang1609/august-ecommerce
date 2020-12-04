@@ -1,20 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 import "./banner.scss";
 
-import banner3 from "assets/image/banner/banner3.jpg";
-import banner4 from "assets/image/banner/banner4.jpg";
-import banner5 from "assets/image/banner/banner5.jpg";
-import banner6 from "assets/image/banner/banner6.jpg";
+Banner.propTypes = {
+  bannerList: PropTypes.array.isRequired,
+};
 
-export default function Banner() {
-  const handleClickItem = (index) => {
-    console.log(index);
-  };
-
+export default function Banner({ bannerList }) {
   return (
     <Carousel
       showThumbs={false}
@@ -22,23 +18,17 @@ export default function Banner() {
       autoPlay={true}
       showStatus={false}
       className="banner"
-      onClickItem={handleClickItem}
       emulateTouch={true}
       transitionTime={1000}
       interval={30000}
     >
-      <div>
-        <img src={banner3} />
-      </div>
-      <div>
-        <img src={banner4} />
-      </div>
-      <div>
-        <img src={banner5} />
-      </div>
-      <div>
-        <img src={banner6} />
-      </div>
+      {bannerList.map((bannerList, index) => {
+        return (
+          <div>
+            <img src={bannerList.url} alt={bannerList.name} />
+          </div>
+        );
+      })}
     </Carousel>
   );
 }
