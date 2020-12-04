@@ -1,0 +1,15 @@
+@import "scss/varible.scss";
+.carousel .slider-wrapper {
+  height: 50rem;
+}
+.carousel .control-dots .dot.selected,
+.carousel .control-dots .dot:hover {
+  box-shadow: none;
+  background: $color-secondary;
+}
+.carousel .control-dots .dot {
+  box-shadow: none;
+  outline: none;
+  width: 10px;
+  height: 10px;
+}

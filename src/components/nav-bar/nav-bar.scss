@@ -1,0 +1,55 @@
+@import "scss/varible.scss";
+
+.navBar__item {
+  display: inline-block;
+  margin-right: 2rem;
+  & > a {
+    padding: 5px;
+    transition: color 0.5s;
+    &:hover {
+      color: $color-primary;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0.2rem;
+      background: $color-primary;
+      transition: width 0.2s;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+  &:hover .navBar__item > a::after {
+    width: 100%;
+  }
+  &:hover .navBar__listSub {
+    display: block;
+  }
+}
+.navBar__listSub {
+  display: none;
+  border-radius: 1rem;
+  position: absolute;
+  list-style-type: none;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
+    brightness(140%);
+  box-shadow: 0 0 5px #898989;
+}
+.navBar__itemSub > a {
+  padding: 5px;
+  transition: color 0.5s;
+  &:hover {
+    color: $color-primary;
+  }
+}
+.link-active {
+  color: $color-primary;
+  & .fa-caret-down {
+    color: $color-primary;
+  }
+}

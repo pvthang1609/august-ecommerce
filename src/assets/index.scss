@@ -1,0 +1,26 @@
+@import "scss/varible.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+  color: $color-text;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+img {
+  max-width: 100%;
+}
+.container {
+  width: 120rem;
+  margin: 0 auto;
+}

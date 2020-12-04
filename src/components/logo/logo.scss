@@ -1,0 +1,10 @@
+@import "assets/index.scss";
+.logo {
+  font-size: 4rem;
+  & a {
+    font-family: $font-logo;
+  }
+  & span {
+    color: $color-secondary;
+  }
+}
