@@ -1,0 +1,4 @@
+làm phần loading image 
+chưa có thẻ h1
+
+nếu screen device thay đổi sẽ thay đổi height của box-tittle

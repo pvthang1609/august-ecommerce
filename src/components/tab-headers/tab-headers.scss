@@ -1,0 +1,18 @@
+@import "scss/variable.scss";
+
+.tab-headers {
+  padding: 1rem 0;
+  &__tablink {
+    padding: 0.2rem 0.5rem;
+    margin-right: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: 700;
+  }
+}
+.tablink-actived {
+  color: $color-secondary;
+}

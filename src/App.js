@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import { NotFound, Logo, Navbar, SearchBar, LinkTop } from "assets/import";
 import { NAV_MAIN_LIST } from "assets/CONSTANTS";
 
 import "./app.scss";
 
-const HomePage = React.lazy(() => import("features/product/page/home-page"));
+const Product = React.lazy(() => import("features/product"));
 
 function App() {
   return (
@@ -21,7 +21,10 @@ function App() {
           </div>
         </header>
         <Switch>
-          <Route path="/" exact component={HomePage} />
+          <Redirect exact from="/" to="/product" />
+
+          <Route path="/product" component={Product} />
+
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

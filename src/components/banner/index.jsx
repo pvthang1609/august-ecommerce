@@ -24,7 +24,7 @@ export default function Banner({ bannerList }) {
     >
       {bannerList.map((bannerList, index) => {
         return (
-          <div>
+          <div key={index}>
             <img src={bannerList.url} alt={bannerList.name} />
           </div>
         );

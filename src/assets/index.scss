@@ -1,4 +1,4 @@
-@import "scss/varible.scss";
+@import "scss/variable.scss";
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ img {
   max-width: 100%;
 }
 .container {
-  width: 120rem;
+  max-width: 120rem;
   margin: 0 auto;
   padding: 0 1rem;
 }

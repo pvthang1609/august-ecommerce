@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&family=Yellowtail&display=swap");
+
+$font-primary: "Nunito", sans-serif;
+$font-logo: "Yellowtail", cursive;
+
+$color-text: #1a3c3d;
+$color-background: #fae9d2;
+$color-primary: #d89c0f;
+$color-secondary: #f55d5c;
+
+@mixin flex($justify: space-between, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}

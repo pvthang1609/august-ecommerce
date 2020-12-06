@@ -1,12 +1,14 @@
-import banner1 from "assets/image/banner/banner1.jpg";
-import banner4 from "assets/image/banner/banner4.jpg";
-import banner5 from "assets/image/banner/banner5.jpg";
-import banner6 from "assets/image/banner/banner6.jpg";
+import banner1 from "assets/image/banner/banner1.webp";
+import banner4 from "assets/image/banner/banner4.webp";
+import banner5 from "assets/image/banner/banner5.webp";
+import banner6 from "assets/image/banner/banner6.webp";
+
+import image from "assets/image/product-demo/1.jpg";
 
 const NAV_MAIN_LIST = [
   {
     name: "Trang Chủ",
-    link: "/",
+    link: "/product",
     exact: true,
   },
   {
@@ -70,4 +72,67 @@ const BANNER_LIST = [
   },
 ];
 
-export { NAV_MAIN_LIST, BANNER_LIST };
+const WOMAN_CATE = [
+  {
+    name: "all",
+  },
+  {
+    name: "blazers",
+  },
+  {
+    name: "jackets",
+  },
+  {
+    name: "dress",
+  },
+  {
+    name: "trousers",
+  },
+  {
+    name: "accessories",
+  },
+];
+
+const PRODUCT_LIST = [
+  {
+    id: 1,
+    name: "VINTAS THE NEW MILITARY",
+    price: 50,
+    mainImg: image,
+    tag: "sale",
+  },
+  {
+    id: 1,
+    name: "Quần âu",
+    price: 50,
+    mainImg: image,
+  },
+  {
+    id: 1,
+    name: "Quần âu",
+    price: 50,
+    mainImg: image,
+    tag: "hot",
+  },
+  {
+    id: 1,
+    name: "Quần âu",
+    price: 50,
+    mainImg: image,
+  },
+  {
+    id: 1,
+    name: "Quần âu",
+    price: 50,
+    mainImg: image,
+    tag: "new",
+  },
+  {
+    id: 1,
+    name: "Quần âu",
+    price: 50,
+    mainImg: image,
+  },
+];
+
+export { NAV_MAIN_LIST, BANNER_LIST, WOMAN_CATE, PRODUCT_LIST };
