@@ -5,10 +5,20 @@ import { NotFound, Logo, Navbar, SearchBar, LinkTop } from "assets/import";
 import { NAV_MAIN_LIST } from "assets/CONSTANTS";
 
 import "./app.scss";
+import Footer from "components/footer";
 
 const Product = React.lazy(() => import("features/product"));
 
 function App() {
+  const handlerUpTopBtn = () => {
+    // window.scroll(0, 0);
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <BrowserRouter>
@@ -27,6 +37,11 @@ function App() {
 
           <Route component={NotFound} />
         </Switch>
+        <Footer />
+
+        <button className="upTop-btn" onClick={handlerUpTopBtn}>
+          <i className="fa fa-angle-up" aria-hidden="true"></i>
+        </button>
       </BrowserRouter>
     </Suspense>
   );

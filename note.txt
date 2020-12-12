@@ -2,3 +2,10 @@ làm phần loading image
 chưa có thẻ h1
 
 nếu screen device thay đổi sẽ thay đổi height của box-tittle
+
+tổ chức api
+- tạo 1 folder HTTP Client
+- tạo 1 folder chứa các file api
+
+
+req.query => query string parameters

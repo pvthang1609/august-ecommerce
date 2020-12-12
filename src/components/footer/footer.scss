@@ -1,0 +1,19 @@
+@import "scss/variable.scss";
+
+.footer {
+  background-color: #f8f8f8;
+  line-height: 1.6;
+  padding-bottom: 3rem;
+  &__content {
+    @include flex(space-between, flex-start);
+    &--blockList:first-child {
+      width: 35%;
+    }
+    &--blockList p span {
+      font-weight: 700;
+    }
+    &--blockList ul {
+      list-style-type: none;
+    }
+  }
+}

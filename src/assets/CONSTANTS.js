@@ -5,6 +5,13 @@ import banner6 from "assets/image/banner/banner6.webp";
 
 import image from "assets/image/product-demo/1.jpg";
 
+import nike from "assets/image/brand-logo/001-nike.svg";
+import adidas from "assets/image/brand-logo/002-adidas.svg";
+import swarm from "assets/image/brand-logo/003-swarm.svg";
+import beatsPill from "assets/image/brand-logo/004-beats-pill.svg";
+import fiverr from "assets/image/brand-logo/005-fiverr.svg";
+import xingLogo from "assets/image/brand-logo/007-xing-logo.svg";
+
 const NAV_MAIN_LIST = [
   {
     name: "Trang Chủ",
@@ -93,6 +100,24 @@ const WOMAN_CATE = [
   },
 ];
 
+const MAN_CATE = [
+  {
+    name: "all",
+  },
+  {
+    name: "blazers",
+  },
+  {
+    name: "jackets",
+  },
+  {
+    name: "trousers",
+  },
+  {
+    name: "accessories",
+  },
+];
+
 const PRODUCT_LIST = [
   {
     id: 1,
@@ -135,4 +160,13 @@ const PRODUCT_LIST = [
   },
 ];
 
-export { NAV_MAIN_LIST, BANNER_LIST, WOMAN_CATE, PRODUCT_LIST };
+const BRAND_LIST = [nike, adidas, swarm, beatsPill, fiverr, xingLogo];
+
+export {
+  NAV_MAIN_LIST,
+  BANNER_LIST,
+  WOMAN_CATE,
+  PRODUCT_LIST,
+  MAN_CATE,
+  BRAND_LIST,
+};

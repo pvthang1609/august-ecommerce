@@ -1,50 +1,75 @@
-import React from "react";
-
-import banner7 from "assets/image/banner/banner7.webp";
-import banner8 from "assets/image/banner/banner8.webp";
-
-import ProductList from "features/product/components/product-list";
-import TabHeaders from "components/tab-headers";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import NewProductsDisplay from "features/product/components/new-product-display";
 
 import "./main-page.scss";
 
-import { PRODUCT_LIST, WOMAN_CATE } from "assets/CONSTANTS";
-import { Link } from "react-router-dom";
+import banner7 from "assets/image/banner/banner7.webp";
+import banner8 from "assets/image/banner/banner8.webp";
+import banner9 from "assets/image/banner/banner9.webp";
+
+import {
+  PRODUCT_LIST,
+  WOMAN_CATE,
+  MAN_CATE,
+  BRAND_LIST,
+} from "assets/CONSTANTS";
+import productApi from "api/productApi";
+import BrandLogo from "components/brand-logo";
 
 export default function MainPage() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const fetchApi = async () => {
+      try {
+        const params = { id: "1", name: "thang" };
+        const response = await productApi.get(params);
+        setData(response);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchApi();
+  }, []);
+
   return (
     <div>
-      <section className="main-page__for-woman">
-        <div className="container main-page__inner">
-          <div className="main-page__for-woman--left">
-            <div className="box-title">
-              <h2 className="box-title__title-background">august</h2>
-              <h2 className="box-title__title">#forher</h2>
-            </div>
-            <div className="box-img">
-              <img className="box-img__image" src={banner7} alt="for-her" />
-              <Link className="box-img__more-btn" to="#">
-                Xem Thêm
-              </Link>
-            </div>
-          </div>
-          <div className="main-page__for-woman--right">
-            <TabHeaders list={WOMAN_CATE} />
-            <ProductList
-              productList={PRODUCT_LIST}
-              width={720}
-              numbItem={3}
-              spaceItem={20}
-            />
-          </div>
-        </div>
-      </section>
+      <NewProductsDisplay
+        productList={PRODUCT_LIST}
+        heading="#forwoman"
+        headingBackground="vintage"
+        headingImg={banner7}
+        categoryList={WOMAN_CATE}
+        gender="woman"
+      />
       <div className="secondary-banner">
         <img src={banner8} alt="banner8" />
         <Link className="secondary-banner__tittle-link" to="#">
           Xem thêm
         </Link>
       </div>
+      <NewProductsDisplay
+        productList={PRODUCT_LIST}
+        heading="#forman"
+        headingBackground="urban"
+        headingImg={banner9}
+        categoryList={MAN_CATE}
+        gender="men"
+      />
+      <div className="third-banner">
+        <div>
+          <img src={banner7} alt="none" />
+        </div>
+        <div>
+          <img src={banner9} alt="none" />
+        </div>
+        <div className="block-center">
+          <div>
+            <p>#auguststore</p>
+          </div>
+        </div>
+      </div>
+      <BrandLogo brandList={BRAND_LIST} />
     </div>
   );
 }

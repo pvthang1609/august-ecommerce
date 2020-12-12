@@ -13,7 +13,6 @@ export default function TabHeaders({ list }) {
 
   return (
     <div className="tab-headers">
-      {console.log(isActive)}
       {list.map((item, index) => {
         return (
           <button
