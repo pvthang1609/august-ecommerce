@@ -7,6 +7,8 @@ import "./main-page.scss";
 import banner7 from "assets/image/banner/banner7.webp";
 import banner8 from "assets/image/banner/banner8.webp";
 import banner9 from "assets/image/banner/banner9.webp";
+import { BANNER_LIST } from "assets/CONSTANTS";
+import Banner from "components/banner";
 
 import {
   PRODUCT_LIST,
@@ -14,26 +16,27 @@ import {
   MAN_CATE,
   BRAND_LIST,
 } from "assets/CONSTANTS";
-import productApi from "api/productApi";
+// import productApi from "api/productApi";
 import BrandLogo from "components/brand-logo";
 
 export default function MainPage() {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    const fetchApi = async () => {
-      try {
-        const params = { id: "1", name: "thang" };
-        const response = await productApi.get(params);
-        setData(response);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchApi();
-  }, []);
+  // const [data, setData] = useState(null);
+  // useEffect(() => {
+  //   const fetchApi = async () => {
+  //     try {
+  //       const params = { id: "1", name: "thang" };
+  //       const response = await productApi.get(params);
+  //       setData(response);
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
+  //   fetchApi();
+  // }, []);
 
   return (
     <div>
+      <Banner bannerList={BANNER_LIST} />
       <NewProductsDisplay
         productList={PRODUCT_LIST}
         heading="#forwoman"

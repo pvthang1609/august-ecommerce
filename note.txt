@@ -9,3 +9,15 @@ tổ chức api
 
 
 req.query => query string parameters
+
+
+sản phẩm chia theo collection
+- Nam
+- Nữ
+- New arrivals
+- Hot
+- New
+
+nếu mà collection mặc định nếu k điền = gender
+
+rê chuột vào phần nút nhất => lỗi zoom lens

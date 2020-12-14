@@ -18,7 +18,7 @@ export default function ProductCard({
 
   const match = useRouteMatch();
 
-  const { id, name, price, rate, tag, mainImg, album } = product;
+  const { _id, name, price, collection, mainImg } = product;
 
   const [isLike, setIsLike] = useState(false);
 
@@ -37,20 +37,20 @@ export default function ProductCard({
 
   return (
     <div className="product-card" style={{ maxWidth: widthProductCard }}>
-      {tag && (
+      {collection && (
         <div
           className="product-card__tag"
           style={
-            tag === "new"
+            collection === "new"
               ? { background: "#83d7e2" }
-              : tag === "hot"
+              : collection === "hot"
               ? { background: "#f55d5c" }
-              : tag === "sale"
+              : collection === "sale"
               ? { background: "#fbd64a" }
               : null
           }
         >
-          {tag}
+          {collection}
         </div>
       )}
       <button className="product-card__like-btn" onClick={handleLikeBtnClick}>
@@ -61,7 +61,9 @@ export default function ProductCard({
         )}
       </button>
       <div className="product-card__image">
-        <img src={mainImg ? mainImg : NoImg} alt={name} />
+        <Link to={`${match.url}/${_id}`}>
+          <img src={mainImg ? mainImg : NoImg} alt={name} />
+        </Link>
         <div className="product-card__group-btn">
           <button
             className="product-card__detail-btn"
@@ -82,7 +84,7 @@ export default function ProductCard({
       </div>
       <div className="product-card__text">
         <div className="product-card__text--name">
-          <Link to={`${match.url}/${id}`}>{name}</Link>
+          <Link to={`${match.url}/${_id}`}>{name}</Link>
         </div>
         <div className="product-card__text--price">
           {price ? `$${price}` : "Liên hệ"}

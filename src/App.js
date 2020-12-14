@@ -11,7 +11,6 @@ const Product = React.lazy(() => import("features/product"));
 
 function App() {
   const handlerUpTopBtn = () => {
-    // window.scroll(0, 0);
     window.scroll({
       top: 0,
       left: 0,

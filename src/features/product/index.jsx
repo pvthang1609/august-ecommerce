@@ -1,7 +1,6 @@
 // Phần này để router đến từng trang của feature Product
-import { BANNER_LIST } from "assets/CONSTANTS";
+
 import NotFound from "components/404";
-import Banner from "components/banner";
 import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import MainPage from "./page/main-page";
@@ -13,7 +12,6 @@ export default function Product() {
 
   return (
     <main>
-      <Banner bannerList={BANNER_LIST} />
       <Switch>
         <Route exact path={match.path} component={MainPage} />
 

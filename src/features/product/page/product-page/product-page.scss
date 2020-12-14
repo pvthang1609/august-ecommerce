@@ -1,0 +1,39 @@
+@import "scss/variable.scss";
+
+.product-detail {
+  @include flex(space-between, flex-start);
+  & > div {
+    width: calc((100% - 3rem) / 2);
+  }
+}
+.product-info {
+  &__block {
+    margin-bottom: 1rem;
+    @include flex;
+    & i {
+      font-size: 1.4rem;
+    }
+    width: 80%;
+  }
+  &__product-name {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+  }
+  &__product-code,
+  &__product-inventory {
+    font-size: 1.4rem;
+    & span {
+      text-transform: uppercase;
+    }
+  }
+  &__product-price {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: $color-secondary;
+  }
+  &__product-desc {
+    padding: 3rem 0;
+    border-top: 0.1rem solid #ccc;
+    border-bottom: 0.1rem solid #ccc;
+  }
+}
