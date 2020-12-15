@@ -16,7 +16,6 @@ export default function ProductPage() {
     album,
     classify,
     collection,
-    color,
     favorite,
     gender,
     info,
@@ -54,13 +53,16 @@ export default function ProductPage() {
                 <p className="product-info__product-price">{`${
                   productCurrent.price ? productCurrent.price : price
                 }.000đ`}</p>
-                <i>* đã bao gồm VAT.</i>
+                <p>
+                  {favorite} <i class="fa fa-heart" aria-hidden="true"></i>
+                </p>
+                <p style={{ fontStyle: "italic" }}>* đã bao gồm VAT.</p>
               </div>
             </div>
             <div className="product-info__product-desc">
               {desc && <p>{desc}</p>}
             </div>
-            <div>
+            <div className="product-info__product-form">
               <ProductForm
                 info={info}
                 onSizeChange={(value) => handleSizeChange(value)}

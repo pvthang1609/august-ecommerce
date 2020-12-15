@@ -1,0 +1,46 @@
+@import "scss/variable.scss";
+
+.product-form__group-input {
+  @include flex();
+  margin-bottom: 2rem;
+  & div {
+    width: calc((100% - 3.5rem) / 2);
+    @include flex();
+  }
+}
+.product-form__tittle {
+  font-size: 2rem;
+  width: 50%;
+}
+.product-form__select-input {
+  width: 35%;
+  padding: 0.8rem 0.5rem;
+  outline: none;
+  border-radius: 1rem;
+  border: 0.1rem solid #dbdbdb;
+  background-color: #fafafa;
+  & option {
+    height: 10rem;
+  }
+}
+.product-form__number-input {
+  width: 35%;
+  padding: 0.9rem 1rem;
+  outline: none;
+  border-radius: 1rem;
+  border: 0.1rem solid #dbdbdb;
+  background-color: #fafafa;
+}
+.product-form__group-btn {
+  @include flex;
+  & button {
+    color: $color-text;
+    font-size: 2rem;
+    padding: 0.9rem 1rem;
+    width: calc((100% - 3.5rem) / 2);
+    background-color: #fae9d2;
+    border-radius: 1rem;
+    border: none;
+    font-weight: 700;
+  }
+}

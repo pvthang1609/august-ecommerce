@@ -9,11 +9,11 @@
 .product-info {
   &__block {
     margin-bottom: 1rem;
+    width: 100%;
     @include flex;
-    & i {
-      font-size: 1.4rem;
+    & p {
+      width: calc(100% / 3);
     }
-    width: 80%;
   }
   &__product-name {
     font-size: 2.5rem;
@@ -21,7 +21,6 @@
   }
   &__product-code,
   &__product-inventory {
-    font-size: 1.4rem;
     & span {
       text-transform: uppercase;
     }
@@ -36,4 +35,11 @@
     border-top: 0.1rem solid #ccc;
     border-bottom: 0.1rem solid #ccc;
   }
+  &__product-form {
+    padding: 3rem 0;
+    border-bottom: 0.1rem solid #ccc;
+  }
+}
+.fa-heart {
+  color: $color-secondary;
 }
