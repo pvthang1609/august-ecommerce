@@ -1,7 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+BreadCrumb.propTypes = {
+  collection: PropTypes.string,
+  classify: PropTypes.string,
+  name: PropTypes.string,
+};
+
 import { Link } from "react-router-dom";
 
-import moduleName from "./breadcurmb.scss";
+import "./breadcurmb.scss";
 
 const getCollection = (collection) => {
   switch (collection) {

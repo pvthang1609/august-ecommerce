@@ -6,6 +6,9 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
+  widthList: PropTypes.number,
+  numbItem: PropTypes.number,
+  spaceItem: PropTypes.number,
 };
 
 export default function ProductCard({
@@ -18,7 +21,7 @@ export default function ProductCard({
 
   const match = useRouteMatch();
 
-  const { _id, name, price, collection, mainImg } = product;
+  const { id, name, price, collection, mainImg } = product;
 
   const [isLike, setIsLike] = useState(false);
 
@@ -61,7 +64,7 @@ export default function ProductCard({
         )}
       </button>
       <div className="product-card__image">
-        <Link to={`${match.url}/${_id}`}>
+        <Link to={`${match.url}/${id}`}>
           <img src={mainImg ? mainImg : NoImg} alt={name} />
         </Link>
         <div className="product-card__group-btn">
@@ -84,7 +87,7 @@ export default function ProductCard({
       </div>
       <div className="product-card__text">
         <div className="product-card__text--name">
-          <Link to={`${match.url}/${_id}`}>{name}</Link>
+          <Link to={`${match.url}/id=${id}`}>{name}</Link>
         </div>
         <div className="product-card__text--price">
           {price ? `$${price}` : "Liên hệ"}

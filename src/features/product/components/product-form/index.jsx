@@ -1,4 +1,12 @@
 import React from "react";
+
+import PropTypes from "prop-types";
+
+ProductForm.propTypes = {
+  info: PropTypes.array,
+  onSizeChange: PropTypes.func,
+};
+
 import { FastField, Form, Formik } from "formik";
 import SelectField from "components/custom-field/select-field";
 import InputField from "components/custom-field/input-field";
@@ -15,13 +23,10 @@ export default function ProductForm({ info, onSizeChange }) {
   const handleSubmit = (value) => {
     console.log(value);
   };
-  const handleChange = () => {
-    console.log("isRun");
-  };
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      {(props) => {
+      {() => {
         return (
           <Form>
             <div className="product-form__group-input">

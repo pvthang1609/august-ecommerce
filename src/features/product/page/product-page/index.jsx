@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BreadCrumb from "features/product/components/breadcrumb";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { PRODUCT_LIST } from "assets/CONSTANTS";
 import ProductSlideShow from "features/product/components/product-slideshow";
@@ -17,12 +17,9 @@ export default function ProductPage() {
     classify,
     collection,
     favorite,
-    gender,
     info,
-    mainImg,
     name,
     price,
-    views,
     desc,
   } = product;
   const [productCurrent, setProductCurrent] = useState(info[0]);
@@ -54,7 +51,7 @@ export default function ProductPage() {
                   productCurrent.price ? productCurrent.price : price
                 }.000đ`}</p>
                 <p>
-                  {favorite} <i class="fa fa-heart" aria-hidden="true"></i>
+                  {favorite} <i className="fa fa-heart" aria-hidden="true"></i>
                 </p>
                 <p style={{ fontStyle: "italic" }}>* đã bao gồm VAT.</p>
               </div>
@@ -67,7 +64,14 @@ export default function ProductPage() {
                 info={info}
                 onSizeChange={(value) => handleSizeChange(value)}
               />
+              <div className="product-info__support-block">
+                <p>
+                  <span>Tư vấn:</span> 19001001.
+                </p>
+                <Link to="/pages/guide-size">+ Xem hướng dẫn chọn size</Link>
+              </div>
             </div>
+            <div className="product-info__product-information"></div>
           </div>
         </div>
       </div>

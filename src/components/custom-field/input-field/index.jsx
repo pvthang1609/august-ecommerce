@@ -1,7 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+InputField.propTypes = {
+  field: PropTypes.object,
+};
 
 export default function InputField(props) {
-  const { field, form } = props;
+  const { field } = props;
   return (
     <div>
       <h3 className="product-form__tittle">Số lượng:</h3>

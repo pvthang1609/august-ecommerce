@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import PropType from "prop-types";
+
+ProductSlideShow.propTypes = {
+  imageList: PropType.array,
+};
+
 import "./product-slideshow.scss";
 
 import classnames from "classnames";

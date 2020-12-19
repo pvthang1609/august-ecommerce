@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
+TabHeaders.propTypes = {
+  list: PropTypes.array,
+};
+
 import "./tab-headers.scss";
 
 const classNames = require("classnames");

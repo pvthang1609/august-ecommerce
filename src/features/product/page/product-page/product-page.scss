@@ -43,3 +43,16 @@
 .fa-heart {
   color: $color-secondary;
 }
+.product-info__support-block {
+  @include flex;
+  margin-top: 2rem;
+  & p span {
+    font-weight: 700;
+  }
+  & a {
+    color: $color-secondary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

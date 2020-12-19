@@ -1,9 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./new-product-display.scss";
-import { Link } from "react-router-dom";
-import TabHeaders from "components/tab-headers";
-import ProductList from "../product-list";
 
 NewProductsDisplay.propTypes = {
   productList: PropTypes.array.isRequired,
@@ -11,7 +7,13 @@ NewProductsDisplay.propTypes = {
   headingBackground: PropTypes.string.isRequired,
   categoryList: PropTypes.array.isRequired,
   gender: PropTypes.string,
+  headingImg: PropTypes.string,
 };
+
+import "./new-product-display.scss";
+import { Link } from "react-router-dom";
+import TabHeaders from "components/tab-headers";
+import ProductList from "../product-list";
 
 export default function NewProductsDisplay({
   productList,

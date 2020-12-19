@@ -1,4 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+Navbar.propTypes = {
+  list: PropTypes.array,
+};
+
 import "./nav-bar.scss";
 
 import { Link, NavLink } from "react-router-dom";

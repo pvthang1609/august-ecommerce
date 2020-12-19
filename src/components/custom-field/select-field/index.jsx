@@ -1,8 +1,17 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
+SelectField.propTypes = {
+  field: PropTypes.object,
+  form: PropTypes.object,
+  info: PropTypes.array,
+  handleChange: PropTypes.func,
+};
+
 export default function SelectField(props) {
   const { field, form, info, handleChange } = props;
-  const { onChange, value } = field;
+  const { onChange } = field;
 
   // console.log(form.setFieldValue);
   const handlerCodeChange = (e) => {

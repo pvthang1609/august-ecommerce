@@ -29,8 +29,8 @@ export default function Footer() {
               <span>Hotline:</span> 19002126 ( cước phí: 3000đ/phút)
             </p>
             <p>
-              Thời gian tư vấn: Từ 07h30 đến 12h15, 13h15 đến 21h30 các ngày
-              trong tuần ( Trừ ngày Lễ, Tế)
+              <span>Thời gian tư vấn</span>: Từ 07h30 đến 12h15, 13h15 đến 21h30
+              các ngày trong tuần ( Trừ ngày Lễ, Tế)
             </p>
           </div>
           <div className="footer__content--blockList">
