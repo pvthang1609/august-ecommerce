@@ -6,6 +6,7 @@ import { NAV_MAIN_LIST } from "assets/CONSTANTS";
 
 import "./app.scss";
 import Footer from "components/footer";
+import Auth from "features/authentication";
 
 const Product = React.lazy(() => import("features/product"));
 
@@ -33,7 +34,7 @@ function App() {
           <Redirect exact from="/" to="/product" />
 
           <Route path="/product" component={Product} />
-
+          <Route path="/auth" component={Auth} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

@@ -745,6 +745,10 @@ const PRODUCT_LIST = [
 ];
 const BRAND_LIST = [nike, adidas, swarm, beatsPill, fiverr, xingLogo];
 
+export { default as banner7 } from "assets/image/banner/banner7.webp";
+export { default as banner8 } from "assets/image/banner/banner8.webp";
+export { default as banner9 } from "assets/image/banner/banner9.webp";
+
 export {
   NAV_MAIN_LIST,
   BANNER_LIST,

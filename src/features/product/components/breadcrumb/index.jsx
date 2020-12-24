@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 BreadCrumb.propTypes = {
-  collection: PropTypes.string,
+  category: PropTypes.string,
   classify: PropTypes.string,
   name: PropTypes.string,
 };
@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 
 import "./breadcurmb.scss";
 
-const getCollection = (collection) => {
-  switch (collection) {
+const getClassify = (classify) => {
+  switch (classify) {
     case "man":
       return "Nam";
     case "woman":
@@ -26,12 +26,12 @@ const getCollection = (collection) => {
     case "new-arrivals":
       return "Xu hướng";
     default:
-      return collection;
+      return classify;
   }
 };
 
-const getClassify = (classify) => {
-  switch (classify) {
+const getCategory = (category) => {
+  switch (category) {
     case "shoe":
       return "Giày";
     case "socks":
@@ -44,12 +44,14 @@ const getClassify = (classify) => {
       return "Áo phông";
     case "watch":
       return "Đồng hồ";
+    case "cap":
+      return "Mũ lưỡi trai";
     default:
-      return classify;
+      return category;
   }
 };
 
-export default function BreadCrumb({ collection, classify, name }) {
+export default function BreadCrumb({ category, classify, name }) {
   return (
     <div className="bread-crumb">
       <div className="container bread-crumb">
@@ -59,12 +61,16 @@ export default function BreadCrumb({ collection, classify, name }) {
               <i className="fa fa-home" aria-hidden="true"></i>Trang chủ
             </Link>
           </li>
-          <li>
-            <Link to="/">{getCollection(collection)}</Link>
-          </li>
-          <li>
-            <Link to="/">{getClassify(classify)}</Link>
-          </li>
+          {classify && (
+            <li>
+              <Link to="/">{getClassify(classify)}</Link>
+            </li>
+          )}
+          {category && (
+            <li>
+              <Link to="/">{getCategory(category)}</Link>
+            </li>
+          )}
           <li>{name}</li>
         </ul>
       </div>
