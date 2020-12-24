@@ -21,7 +21,7 @@ export default function LinkTop() {
             </Link>
           </li>
           <li className="header__top-item">
-            <Link className="header__top-link" to="#">
+            <Link className="header__top-link" to="/auth/login">
               <i className="fa fa-user" aria-hidden="true"></i>
               Đăng nhập
             </Link>

@@ -1,66 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+
+import { NewProductsDisplay, BrandLogo, Banner } from "assets/import";
+import {
+  BANNER_LIST,
+  MAN_CATE,
+  WOMAN_CATE,
+  BRAND_LIST,
+  banner7,
+  banner8,
+  banner9,
+} from "assets/CONSTANTS";
+
 import { Link } from "react-router-dom";
-import NewProductsDisplay from "features/product/components/new-product-display";
+import { useDispatch, useSelector } from "react-redux";
+import { listProduct } from "actions/productAction";
 
 import "./main-page.scss";
 
-import banner7 from "assets/image/banner/banner7.webp";
-import banner8 from "assets/image/banner/banner8.webp";
-import banner9 from "assets/image/banner/banner9.webp";
-import { BANNER_LIST } from "assets/CONSTANTS";
-import Banner from "components/banner";
-
-import { WOMAN_CATE, MAN_CATE, BRAND_LIST } from "assets/CONSTANTS";
-import productApi from "api/productApi";
-import BrandLogo from "components/brand-logo";
-
 export default function MainPage() {
-  const [data1, setData1] = useState([]);
-  const [data2, setData2] = useState([]);
-  const [isLoading1, setIsLoading1] = useState(false);
-  const [isLoading2, setIsLoading2] = useState(false);
-  const [isErr1, setIsErr1] = useState(false);
-  const [isErr2, setIsErr2] = useState(false);
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.listProductsMain);
+  const { listMale, listFemale, loading, fail } = productList;
 
   useEffect(() => {
-    const fetchApi1 = async () => {
-      try {
-        setIsLoading1(true);
-        const params1 = { gender: "Male", order: "newest" };
-        const response1 = await productApi.get(params1);
-        setData1(response1.queryProducts);
-        setIsLoading1(false);
-      } catch (err) {
-        setIsErr1(err.message);
-        setIsLoading1(false);
-      }
-    };
-    const fetchApi2 = async () => {
-      try {
-        setIsLoading2(true);
-        const params2 = { gender: "Female", order: "newest" };
-        const response2 = await productApi.get(params2);
-        setData2(response2.queryProducts);
-        setIsLoading2(false);
-      } catch (err) {
-        setIsErr2(err.message);
-        setIsLoading2(false);
-      }
-    };
-    fetchApi1();
-    fetchApi2();
-  }, []);
+    dispatch(listProduct());
+  }, [dispatch]);
 
   return (
     <div>
       <Banner bannerList={BANNER_LIST} />
-      {isLoading1 ? (
+      {loading ? (
         <p>Loading...</p>
-      ) : isErr1 ? (
-        <p>{isErr1}</p>
+      ) : fail ? (
+        <p>{fail}</p>
       ) : (
         <NewProductsDisplay
-          productList={data1}
+          productList={listFemale}
           heading="#forwoman"
           headingBackground="vintage"
           headingImg={banner7}
@@ -74,13 +49,13 @@ export default function MainPage() {
           Xem thêm
         </Link>
       </div>
-      {isLoading2 ? (
+      {loading ? (
         <p>Loading...</p>
-      ) : isErr2 ? (
-        <p>{isErr2}</p>
+      ) : fail ? (
+        <p>{fail}</p>
       ) : (
         <NewProductsDisplay
-          productList={data2}
+          productList={listMale}
           heading="#forman"
           headingBackground="urban"
           headingImg={banner9}

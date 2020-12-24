@@ -5,6 +5,10 @@ const productApi = {
     const url = "/products";
     return axiosClient.get(url, { params });
   },
+  findOne: (params) => {
+    const url = "/products";
+    return axiosClient.get(`${url}/${params}`);
+  },
 };
 
 export default productApi;

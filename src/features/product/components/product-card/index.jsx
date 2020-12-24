@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import NoImg from "assets/image/no-image.svg";
-import "./product-card.scss";
 import { Link, useRouteMatch } from "react-router-dom";
+
+import "./product-card.scss";
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
@@ -10,6 +11,9 @@ ProductCard.propTypes = {
   numbItem: PropTypes.number,
   spaceItem: PropTypes.number,
 };
+
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, editToCart } from "actions/paymentAction";
 
 export default function ProductCard({
   product,
@@ -21,9 +25,12 @@ export default function ProductCard({
 
   const match = useRouteMatch();
 
-  const { id, name, price, collection, mainImg } = product;
+  const { _id, name, price, collection, mainImg } = product;
 
   const [isLike, setIsLike] = useState(false);
+
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
   const handleLikeBtnClick = () => {
     setIsLike(!isLike);
@@ -31,8 +38,14 @@ export default function ProductCard({
   const handleDetailBtnClick = () => {
     console.log("isRun");
   };
-  const handleAddBtnClick = () => {
-    console.log("isRun");
+  const handleAddBtnClick = (_id) => {
+    const value = cart.cart.find((item) => item.id === _id);
+    const index = cart.cart.indexOf(value);
+    if (index >= 0) {
+      dispatch(editToCart(index, "increment"));
+      return;
+    }
+    dispatch(addToCart(_id));
   };
   const handleBuyNowBtnClick = () => {
     console.log("isRun");
@@ -64,7 +77,7 @@ export default function ProductCard({
         )}
       </button>
       <div className="product-card__image">
-        <Link to={`${match.url}/${id}`}>
+        <Link to={`${match.url}/${_id}`}>
           <img src={mainImg ? mainImg : NoImg} alt={name} />
         </Link>
         <div className="product-card__group-btn">
@@ -74,7 +87,10 @@ export default function ProductCard({
           >
             <i className="fa fa-info" aria-hidden="true"></i>
           </button>
-          <button className="product-card__add-btn" onClick={handleAddBtnClick}>
+          <button
+            className="product-card__add-btn"
+            onClick={() => handleAddBtnClick(_id)}
+          >
             <i className="fa fa-cart-plus" aria-hidden="true"></i>
           </button>
           <button
@@ -87,7 +103,7 @@ export default function ProductCard({
       </div>
       <div className="product-card__text">
         <div className="product-card__text--name">
-          <Link to={`${match.url}/id=${id}`}>{name}</Link>
+          <Link to={`${match.url}/id=${_id}`}>{name}</Link>
         </div>
         <div className="product-card__text--price">
           {price ? `$${price}` : "Liên hệ"}

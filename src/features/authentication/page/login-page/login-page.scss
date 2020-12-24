@@ -1,0 +1,11 @@
+@import "scss/variable.scss";
+
+.login-page {
+  &__inner {
+    @include flex(space-between, flex-start);
+  }
+}
+.login__banner,
+.login__form {
+  width: 50%;
+}
