@@ -1,7 +1,7 @@
 import banner1 from "assets/image/banner/banner1.webp";
-import banner4 from "assets/image/banner/banner4.webp";
-import banner5 from "assets/image/banner/banner5.webp";
-import banner6 from "assets/image/banner/banner6.webp";
+// import banner4 from "assets/image/banner/banner4.webp";
+// import banner5 from "assets/image/banner/banner5.webp";
+// import banner6 from "assets/image/banner/banner6.webp";
 
 import image from "assets/image/product-demo/1.jpg";
 import image2 from "assets/image/product-demo/2.jpg";
@@ -67,18 +67,6 @@ const BANNER_LIST = [
   {
     name: "banner1",
     url: banner1,
-  },
-  {
-    name: "banner4",
-    url: banner4,
-  },
-  {
-    name: "banner5",
-    url: banner5,
-  },
-  {
-    name: "banner6",
-    url: banner6,
   },
 ];
 

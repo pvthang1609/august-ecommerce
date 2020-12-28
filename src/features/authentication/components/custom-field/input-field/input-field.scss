@@ -1,0 +1,62 @@
+@import "scss/variable.scss";
+.inputField {
+  background-color: #fafafa;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  border: 0.1rem solid #dbdbdb;
+  font-size: 1.8rem;
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    & p:first-child {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+  &__input .fa-envelope,
+  &__input .fa-unlock-alt {
+    width: 16px;
+    color: $color-secondary;
+    margin-right: 20px;
+  }
+  &__input input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 75%;
+  }
+}
+.text-error {
+  font-size: 14px;
+  color: $color-secondary;
+}
+.fa-exclamation-circle {
+  color: $color-secondary;
+  margin-left: 5px;
+}
+.text-enter {
+  opacity: 0;
+  &-active {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+}
+.text-exit {
+  opacity: 1;
+  &-active {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}
+.changeTypes__btn {
+  border: none;
+  background-color: transparent;
+  font-size: 1.8rem;
+  text-align: center;
+  outline: none;
+  float: right;
+  cursor: pointer;
+}
