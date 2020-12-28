@@ -33,14 +33,14 @@
 }
 .product-form__group-btn {
   @include flex;
-  & button {
-    color: $color-text;
-    font-size: 2rem;
-    padding: 0.9rem 1rem;
-    width: calc((100% - 3.5rem) / 2);
-    background-color: #fae9d2;
-    border-radius: 1rem;
-    border: none;
-    font-weight: 700;
-  }
+}
+.btn--addCart {
+  width: calc((100% - 3.5rem) / 2);
+  background-color: $color-text;
+  color: #fff;
+}
+.btn--payNow {
+  width: calc((100% - 3.5rem) / 2);
+  background-color: $color-secondary;
+  color: #fff;
 }

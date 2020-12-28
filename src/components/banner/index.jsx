@@ -17,7 +17,6 @@ export default function Banner({ bannerList }) {
       infiniteLoop={true}
       autoPlay={true}
       showStatus={false}
-      className="banner"
       emulateTouch={true}
       transitionTime={1000}
       interval={30000}

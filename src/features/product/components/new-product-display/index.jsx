@@ -1,65 +1,38 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "assets/grid.css";
+import "./new-product-display.scss";
+import ProductList from "../product-list";
 
 NewProductsDisplay.propTypes = {
   productList: PropTypes.array.isRequired,
-  heading: PropTypes.string.isRequired,
-  headingBackground: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  titleBg: PropTypes.string.isRequired,
   categoryList: PropTypes.array.isRequired,
   gender: PropTypes.string,
-  headingImg: PropTypes.string,
+  image: PropTypes.string,
 };
-
-import "./new-product-display.scss";
-import { Link } from "react-router-dom";
-import TabHeaders from "components/tab-headers";
-import ProductList from "../product-list";
 
 export default function NewProductsDisplay({
   productList,
-  heading,
-  headingBackground,
-  headingImg,
+  title,
+  image,
+  titleBg,
   categoryList,
-  gender,
 }) {
   return (
-    <section className="main-page__newProducts">
-      <div
-        className="container main-page__inner"
-        style={gender === "men" ? { flexDirection: "row-reverse" } : null}
-      >
-        <div
-          className="main-page__newProducts--left"
-          style={
-            gender === "men"
-              ? { maxWidth: "45rem", paddingRight: "0rem", height: "100%" }
-              : null
-          }
-        >
-          <div
-            className="box-title"
-            style={gender === "men" ? { height: "11.5rem" } : null}
-          >
-            <h2 className="box-title__title-background">{headingBackground}</h2>
-            <h2 className="box-title__title">{heading}</h2>
+    <section className="grid wide">
+      <div className="row n-pro-display">
+        <div className="col l-4 m-12">
+          <div className="n-pro-display__heading">
+            <h2 className="n-pro-display__heading--titleBg">{titleBg}</h2>
+            <h2 className="n-pro-display__heading--title">{title}</h2>
           </div>
-          <div className="box-img">
-            <img className="box-img__image" src={headingImg} alt="headingImg" />
-            <Link className="box-img__more-btn" to="#">
-              Xem Thêm
-            </Link>
+          <div className="n-pro-display__heading--image">
+            <img src={image} alt="none" />
           </div>
         </div>
-        <div className="main-page__newProducts--right">
-          <TabHeaders list={categoryList} />
-          <ProductList
-            productList={productList}
-            width={720}
-            numbItem={3}
-            spaceItem={20}
-          />
-        </div>
+        <ProductList productList={productList} categoryList={categoryList} />
       </div>
     </section>
   );

@@ -39,8 +39,10 @@ export default function ProductForm({ info, onSizeChange }) {
               <FastField name="amount" component={InputField} />
             </div>
             <div className="product-form__group-btn">
-              <button type="submit">Thêm vào giỏ</button>
-              <button>Thanh toán</button>
+              <button type="submit" className="btn btn--addCart">
+                Thêm vào giỏ
+              </button>
+              <button className="btn btn--payNow">Thanh toán</button>
             </div>
           </Form>
         );

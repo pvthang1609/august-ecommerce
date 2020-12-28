@@ -11,11 +11,11 @@ import {
   banner9,
 } from "assets/CONSTANTS";
 
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { listProduct } from "actions/productAction";
 
 import "./main-page.scss";
+import ProductCardSkeleton from "features/product/components/skeleton-loading/product-card-skeleton";
 
 export default function MainPage() {
   const dispatch = useDispatch();
@@ -30,25 +30,30 @@ export default function MainPage() {
     <div>
       <Banner bannerList={BANNER_LIST} />
       {loading ? (
-        <p>Loading...</p>
+        <ProductCardSkeleton width={720} numbItem={3} spaceItem={20} />
       ) : fail ? (
         <p>{fail}</p>
       ) : (
         <NewProductsDisplay
           productList={listFemale}
-          heading="#forwoman"
-          headingBackground="vintage"
-          headingImg={banner7}
+          title="#forwoman"
+          titleBg="vintage"
+          image={banner7}
           categoryList={WOMAN_CATE}
-          gender="woman"
         />
       )}
-      <div className="secondary-banner">
-        <img src={banner8} alt="banner8" />
-        <Link className="secondary-banner__tittle-link" to="#">
-          Xem thêm
-        </Link>
-      </div>
+      <section className="grid wide">
+        <div className="row">
+          <div className="col l-12 m-12 m-0">
+            <div
+              className="banner"
+              style={{ backgroundImage: `url(${banner8})` }}
+            >
+              <button className="btn btn--more">Xem thêm</button>
+            </div>
+          </div>
+        </div>
+      </section>
       {loading ? (
         <p>Loading...</p>
       ) : fail ? (
@@ -56,26 +61,28 @@ export default function MainPage() {
       ) : (
         <NewProductsDisplay
           productList={listMale}
-          heading="#forman"
-          headingBackground="urban"
-          headingImg={banner9}
+          title="#forman"
+          titleBg="urban"
+          image={banner9}
           categoryList={MAN_CATE}
-          gender="men"
         />
       )}
-      <div className="third-banner">
-        <div>
-          <img src={banner7} alt="none" />
-        </div>
-        <div>
-          <img src={banner9} alt="none" />
-        </div>
-        <div className="block-center">
-          <div>
-            <p>#auguststore</p>
+      <section className="grid wide">
+        <div className="row">
+          <div className="col l-6 m-6 m-0">
+            <div
+              className="banner"
+              style={{ backgroundImage: `url(${banner7})` }}
+            ></div>
+          </div>
+          <div className="col l-6 m-6 m-0">
+            <div
+              className="banner"
+              style={{ backgroundImage: `url(${banner9})` }}
+            ></div>
           </div>
         </div>
-      </div>
+      </section>
       <BrandLogo brandList={BRAND_LIST} />
     </div>
   );

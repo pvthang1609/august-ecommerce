@@ -15,14 +15,7 @@ ProductCard.propTypes = {
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, editToCart } from "actions/paymentAction";
 
-export default function ProductCard({
-  product,
-  widthList,
-  numbItem,
-  spaceItem,
-}) {
-  const widthProductCard = (widthList - (numbItem - 1) * spaceItem) / numbItem;
-
+export default function ProductCard({ product }) {
   const match = useRouteMatch();
 
   const { _id, name, price, collection, mainImg } = product;
@@ -52,7 +45,7 @@ export default function ProductCard({
   };
 
   return (
-    <div className="product-card" style={{ maxWidth: widthProductCard }}>
+    <div className="col l-4 m-6 product-card">
       {collection && (
         <div
           className="product-card__tag"

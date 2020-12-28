@@ -28,3 +28,23 @@ img {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  min-width: 15rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+.banner {
+  height: 30rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
