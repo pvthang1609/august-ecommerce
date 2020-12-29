@@ -1,0 +1,51 @@
+@import "scss/variable.scss";
+
+.toast-message {
+  width: 40rem;
+  @include flex();
+  box-shadow: 5px 5px 2px rgba(134, 134, 134, 0.445);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0;
+  z-index: 2;
+  & .fa {
+    color: #fff;
+    font-size: 2.5rem;
+  }
+  &--success {
+    background-color: #4aa255;
+  }
+  &--fail {
+    background-color: #e0954c;
+  }
+  &__icon {
+    height: 100%;
+    width: 15%;
+    line-height: 9rem;
+    text-align: center;
+  }
+  &__message {
+    height: 100%;
+    width: 75%;
+  }
+  &__btn {
+    height: 100%;
+    width: 10%;
+    line-height: 9rem;
+    text-align: center;
+    border-radius: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(0.95);
+    }
+  }
+}
+.message__status {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.message__title {
+  color: #fff;
+}

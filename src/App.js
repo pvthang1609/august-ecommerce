@@ -7,7 +7,8 @@ import { NAV_MAIN_LIST } from "assets/CONSTANTS";
 import "./app.scss";
 import Footer from "components/footer";
 import Auth from "features/authentication";
-import Payment from "features/payment"
+import Payment from "features/payment";
+import Notification from "features/notification";
 
 const Product = React.lazy(() => import("features/product"));
 
@@ -44,6 +45,7 @@ function App() {
         <button className="upTop-btn" onClick={handlerUpTopBtn}>
           <i className="fa fa-angle-up" aria-hidden="true"></i>
         </button>
+        <Notification />
       </BrowserRouter>
     </Suspense>
   );

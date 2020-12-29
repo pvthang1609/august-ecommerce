@@ -14,6 +14,7 @@ ProductCard.propTypes = {
 
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, editToCart } from "actions/paymentAction";
+import { notificationAddCart } from "actions/notificationAction";
 
 export default function ProductCard({ product }) {
   const match = useRouteMatch();
@@ -24,7 +25,7 @@ export default function ProductCard({ product }) {
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const {listCart} = cart;
+  const { listCart } = cart;
 
   const handleLikeBtnClick = () => {
     setIsLike(!isLike);
@@ -32,7 +33,8 @@ export default function ProductCard({ product }) {
   const handleDetailBtnClick = () => {
     console.log("isRun");
   };
-  const handleAddBtnClick = (_id) => {
+  const handleAddBtnClick = (_id, name) => {
+    dispatch(notificationAddCart(name));
     const value = listCart.find((item) => item.id === _id);
     const index = listCart.indexOf(value);
     if (index >= 0) {
@@ -83,7 +85,7 @@ export default function ProductCard({ product }) {
           </button>
           <button
             className="product-card__add-btn"
-            onClick={() => handleAddBtnClick(_id)}
+            onClick={() => handleAddBtnClick(_id, name)}
           >
             <i className="fa fa-cart-plus" aria-hidden="true"></i>
           </button>
