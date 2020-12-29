@@ -1,28 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initCart = {
-  cart: [],
+  listCart: [],
 };
 
 const cartSlice = createSlice({
-  name: "cart",
+  name: "listCart",
   initialState: initCart,
   reducers: {
     add_cart: (state, action) => {
-      state.cart.push(action.payload);
+      state.listCart.push(action.payload);
     },
     edit_cart: (state, action) => {
       if (action.payload.type === "increment") {
-        state.cart[action.payload.index].quantity =
-          state.cart[action.payload.index].quantity + 1;
+        state.listCart[action.payload.index].quantity =
+          state.listCart[action.payload.index].quantity + 1;
       }
       if (action.payload.type === "decrement") {
-        state.cart[action.payload.index].quantity =
-          state.cart[action.payload.index].quantity - 1;
+        state.listCart[action.payload.index].quantity =
+          state.listCart[action.payload.index].quantity - 1;
       }
     },
     remove_cart: (state, action) => {
-      state.cart.splice(action.payload, 1);
+      state.listCart.splice(action.payload, 1);
     },
     fail_cart: (state, action) => {
       state.fail = action.payload;

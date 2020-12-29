@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productMainReducer from "features/product/page/main-page/mainProductSlice";
 import detailProductReducer from "features/product/page/product-page/detailProductSlice";
-import cartReducer from "features/payment/cart/cartSlice";
+import cartReducer from "features/payment/page/cart/cartSlice";
 
 const rootReducer = {
   listProductsMain: productMainReducer,

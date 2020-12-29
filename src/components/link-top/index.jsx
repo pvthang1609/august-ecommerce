@@ -1,9 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import "./link-top.scss";
 
 export default function LinkTop() {
+  const cart = useSelector(state => state.cart)
+
+  const  { listCart } = cart
+
   return (
     <div className="header__top">
       <div className="container">
@@ -27,9 +32,9 @@ export default function LinkTop() {
             </Link>
           </li>
           <li className="header__top-item">
-            <Link className="header__top-link" to="#">
+            <Link className="header__top-link" to="/payment/cart">
               <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-              Giỏ hàng (<span>0</span>)
+              Giỏ hàng (<span>{listCart.length}</span>)
             </Link>
           </li>
         </ul>

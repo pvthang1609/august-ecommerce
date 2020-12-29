@@ -24,6 +24,7 @@ export default function ProductCard({ product }) {
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const {listCart} = cart;
 
   const handleLikeBtnClick = () => {
     setIsLike(!isLike);
@@ -32,8 +33,8 @@ export default function ProductCard({ product }) {
     console.log("isRun");
   };
   const handleAddBtnClick = (_id) => {
-    const value = cart.cart.find((item) => item.id === _id);
-    const index = cart.cart.indexOf(value);
+    const value = listCart.find((item) => item.id === _id);
+    const index = listCart.indexOf(value);
     if (index >= 0) {
       dispatch(editToCart(index, "increment"));
       return;
