@@ -1,14 +1,14 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
-import { NotFound, Logo, Navbar, SearchBar, LinkTop } from "assets/import";
-import { NAV_MAIN_LIST } from "assets/CONSTANTS";
+import { NotFound } from "assets/import";
 
 import "./app.scss";
 import Footer from "components/footer";
 import Auth from "features/authentication";
 import Payment from "features/payment";
 import Notification from "features/notification";
+import Header from "components/header";
 
 const Product = React.lazy(() => import("features/product"));
 
@@ -24,14 +24,7 @@ function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <BrowserRouter>
-        <header>
-          <LinkTop />
-          <div className="container main__header">
-            <Logo />
-            <Navbar list={NAV_MAIN_LIST} />
-            <SearchBar />
-          </div>
-        </header>
+        <Header />
         <Switch>
           <Redirect exact from="/" to="/product" />
 

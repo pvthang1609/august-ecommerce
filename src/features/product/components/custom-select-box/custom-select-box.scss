@@ -1,0 +1,55 @@
+@import "scss/variable.scss";
+
+.custom-selBox {
+  position: relative;
+  &__selected {
+    cursor: pointer;
+    padding: 0 1.2rem;
+    background-color: #fafafa;
+    height: 3.8rem;
+    width: 17rem;
+    border-radius: 0.3rem;
+    border: 0.1rem solid #dbdbdb;
+    @include flex(space-between, center);
+    transition: border 0.3s;
+    & img {
+      max-width: 1.5rem;
+      max-height: 1.5rem;
+      margin: 0;
+      transition: transform 0.3s;
+    }
+    &:active {
+      border: 0.1rem solid $color-secondary;
+    }
+  }
+  &__sub-list {
+    width: 17rem;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    background-color: #fafafa;
+    border-radius: 0.3rem;
+    border: 0.1rem solid #dbdbdb;
+    overflow: hidden;
+    box-shadow: 0 0.2rem 0.5rem #c0c0c0;
+    z-index: 2;
+  }
+}
+.sub-list__item {
+  @include flex(space-between, center);
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  & .fa-check {
+    display: none;
+  }
+  &:hover {
+    background-color: $color-secondary;
+  }
+  &:hover p {
+    color: #fff;
+  }
+  &:hover .fa-check {
+    display: block;
+    color: #fff;
+  }
+}

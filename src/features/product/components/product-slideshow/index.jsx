@@ -60,13 +60,13 @@ export default function ProductSlideShow({ imageList }) {
         >
           <i className="fa fa-angle-left" aria-hidden="true"></i>
         </button>
-      </div>
-      <div className="zoomLen">
-        <img
-          className="zoomLen__img"
-          src={imageList[indexMainImg]}
-          alt="none"
-        />
+        <div className="zoomLen">
+          <img
+            className="zoomLen__img"
+            src={imageList[indexMainImg]}
+            alt="none"
+          />
+        </div>
       </div>
       <div className="slick-slider">
         {imageList.map((image, index) => {

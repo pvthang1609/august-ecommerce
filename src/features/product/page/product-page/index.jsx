@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { ProductSlideShow, ProductForm, BreadCrumb } from "assets/import";
+import { ProductSlideShow, ProductForm, BreadCrumbs } from "assets/import";
 
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,52 +14,41 @@ export default function ProductPage() {
   const dispatch = useDispatch();
   const detailData = useSelector((state) => state.detailProduct);
   const { detail, loading } = detailData;
-  const {
-    name,
-    category,
-    classify,
-    desc,
-    album,
-    info,
-    price,
-    favorite,
-  } = detail;
+  const { name, price, img, info, favorite, desc } = detail;
 
   const [productCurrent, setProductCurrent] = useState(info[0]);
 
   useEffect(() => {
     dispatch(detailProduct(productId));
-  }, [dispatch]);
+  }, [productId]);
 
   const handleSizeChange = (value) => {
     const newProductCurrent = info.find((item) => item.size == value);
     setProductCurrent(newProductCurrent);
   };
 
+  const BREADCRUMBS_LIST = [{ name: name, url: "/" }];
+
   return (
     <section>
-      {!loading && (
-        <BreadCrumb category={category} classify={classify} name={name} />
-      )}
+      <BreadCrumbs list={BREADCRUMBS_LIST} />
       {!loading && (
         <div className="container">
           <div className="product-detail">
             <div>
-              <ProductSlideShow imageList={album} />
+              <ProductSlideShow imageList={img} />
             </div>
             <div>
               <div className="product-info">
                 <h1 className="product-info__product-name">{name}</h1>
                 <div className="product-info__block">
                   <p className="product-info__product-code">
-                    Mã sản phẩm: <span>{productCurrent.code}.</span>
+                    Mã sản phẩm: <span>{productCurrent.code}</span>
                   </p>
                   <p className="product-info__product-inventory">{`Hàng trong kho: ${productCurrent.inventory} chiếc.`}</p>
                 </div>
                 <div className="product-info__block">
-                  <p className="product-info__product-price">{`${
-                    productCurrent.price ? productCurrent.price : price
-                  }.000đ`}</p>
+                  <p className="product-info__product-price">{`${price}.000đ`}</p>
                   <p>
                     {favorite}{" "}
                     <i className="fa fa-heart" aria-hidden="true"></i>

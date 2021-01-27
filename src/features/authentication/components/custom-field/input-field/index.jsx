@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 InputField.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.object,
   placeholder: PropTypes.string,
   field: PropTypes.object,
   form: PropTypes.object,
@@ -51,13 +51,16 @@ export default function InputField({
             <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
           </p>
         </CSSTransition>
-        {/* ) : null} */}
       </div>
       <div className="inputField__input">
         {icon}
         <input {...field} type={inputType} placeholder={placeholder} />
         {type === "password" ? (
-          <button className="changeTypes__btn" onClick={changeTypes}>
+          <button
+            type="button"
+            className="changeTypes__btn"
+            onClick={changeTypes}
+          >
             {inputType === "password" ? (
               <i className="fa fa-eye" aria-hidden="true"></i>
             ) : (

@@ -9,12 +9,17 @@ import {
   detail_product_fail,
   detail_product_success,
 } from "features/product/page/product-page/detailProductSlice";
+import {
+  filter_product_request,
+  filter_product_fail,
+  filter_product_success,
+} from "features/product/page/filter-page/filterProductSlice";
 
 export const listProduct = () => async (dispatch) => {
   dispatch(main_product_request());
   try {
-    const params1 = { gender: "Male", order: "newest" };
-    const params2 = { gender: "Female", order: "newest" };
+    const params1 = { gender: "male", order: "newest" };
+    const params2 = { gender: "female", order: "newest" };
     const response1 = await productApi.get(params1);
     const response2 = await productApi.get(params2);
     dispatch(main_product_success({ response1, response2 }));
@@ -31,5 +36,15 @@ export const detailProduct = (id) => async (dispatch) => {
     dispatch(detail_product_success(response));
   } catch (error) {
     dispatch(detail_product_fail(error.message));
+  }
+};
+
+export const filterProduct = (params) => async (dispatch) => {
+  dispatch(filter_product_request());
+  try {
+    const response = await productApi.get(params);
+    dispatch(filter_product_success(response));
+  } catch (error) {
+    dispatch(filter_product_fail(error.message));
   }
 };

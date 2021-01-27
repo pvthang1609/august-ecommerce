@@ -21,3 +21,7 @@ sản phẩm chia theo collection
 nếu mà collection mặc định nếu k điền = gender
 
 rê chuột vào phần nút nhất => lỗi zoom lens
+
+
+làm lại card product để có chọn size
+action add to cart cần có check inventory

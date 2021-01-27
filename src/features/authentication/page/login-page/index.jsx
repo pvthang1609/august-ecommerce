@@ -1,11 +1,14 @@
 import React from "react";
 import { Formik, Form, FastField } from "formik";
-import login from "assets/image/login/login.svg";
+import loginImg from "assets/image/login/login.svg";
 import * as Yup from "yup";
 
 import "./login-page.scss";
 import { Link } from "react-router-dom";
 import InputField from "features/authentication/components/custom-field/input-field";
+
+import { login } from "actions/authAction";
+import { useDispatch } from "react-redux";
 
 const initValue = {
   email: "",
@@ -22,11 +25,13 @@ const SigninSchema = Yup.object().shape({
 });
 
 export default function LoginPage() {
+  const dispatch = useDispatch();
+
   return (
     <section className="grid wide">
       <div className="row">
         <div className="col l-7">
-          <img src={login} alt="login" />
+          <img src={loginImg} alt="login" />
         </div>
         <div className="col l-5 login-form">
           <div className="login-form__header">
@@ -45,7 +50,9 @@ export default function LoginPage() {
           <Formik
             initialValues={initValue}
             validationSchema={SigninSchema}
-            onSubmit={(value) => console.log(value)}
+            onSubmit={async (value) => {
+              await dispatch(login(value.email, value.password));
+            }}
           >
             {() => {
               return (

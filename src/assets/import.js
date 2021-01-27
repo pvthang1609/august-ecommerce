@@ -5,7 +5,7 @@ export { default as LinkTop } from "components/link-top";
 export { default as SearchBar } from "components/search-bar";
 export { default as ProductSlideShow } from "features/product/components/product-slideshow";
 export { default as ProductForm } from "features/product/components/product-form";
-export { default as BreadCrumb } from "features/product/components/breadcrumb";
+export { default as BreadCrumbs } from "features/product/components/breadcrumbs";
 export { default as NewProductsDisplay } from "features/product/components/new-product-display";
 export { default as BrandLogo } from "components/brand-logo";
 export { default as Banner } from "components/banner";

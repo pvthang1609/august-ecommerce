@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "assets/grid.css";
 import "./new-product-display.scss";
 import ProductList from "../product-list";
+import ProductCard from "../product-card";
 
 NewProductsDisplay.propTypes = {
   productList: PropTypes.array.isRequired,
@@ -32,7 +33,20 @@ export default function NewProductsDisplay({
             <img src={image} alt="none" />
           </div>
         </div>
-        <ProductList productList={productList} categoryList={categoryList} />
+        <ProductList
+          productList={productList}
+          categoryList={categoryList}
+          className="col l-8"
+        >
+          {(product, index) => (
+            <ProductCard
+              product={product}
+              index={index}
+              className="col l-4"
+              key={index}
+            />
+          )}
+        </ProductList>
       </div>
     </section>
   );
