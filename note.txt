@@ -25,3 +25,7 @@ rê chuột vào phần nút nhất => lỗi zoom lens
 
 làm lại card product để có chọn size
 action add to cart cần có check inventory
+
+response trả về cứ có message là lỗi ??
+
+xem lại phần báo error ở response trả về

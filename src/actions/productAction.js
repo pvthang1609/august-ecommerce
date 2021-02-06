@@ -23,8 +23,8 @@ export const listProduct = () => async (dispatch) => {
     const response1 = await productApi.get(params1);
     const response2 = await productApi.get(params2);
     dispatch(main_product_success({ response1, response2 }));
-  } catch (error) {
-    dispatch(main_product_fail(error.message));
+  } catch (err) {
+    dispatch(main_product_fail(err.message));
   }
 };
 
@@ -34,8 +34,8 @@ export const detailProduct = (id) => async (dispatch) => {
     const param = id;
     const response = await productApi.findOne(param);
     dispatch(detail_product_success(response));
-  } catch (error) {
-    dispatch(detail_product_fail(error.message));
+  } catch (err) {
+    dispatch(detail_product_fail(err.message));
   }
 };
 
@@ -44,7 +44,7 @@ export const filterProduct = (params) => async (dispatch) => {
   try {
     const response = await productApi.get(params);
     dispatch(filter_product_success(response));
-  } catch (error) {
-    dispatch(filter_product_fail(error.message));
+  } catch (err) {
+    dispatch(filter_product_fail(err.message));
   }
 };

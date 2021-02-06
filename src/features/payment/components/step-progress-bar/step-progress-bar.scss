@@ -1,6 +1,7 @@
 @import "scss/variable.scss";
 .step-progress-bar {
-  width: 100rem;
+  position: relative;
+  margin: 1rem 0;
   &__list {
     list-style-type: none;
     @include flex();
@@ -11,49 +12,16 @@
       @include flex(center, center);
       flex-direction: column;
       position: relative;
-      &::after {
-        content: "";
-        display: block;
-        width: 28.4rem;
-        height: 1rem;
-        background-color: #ccc;
-        position: absolute;
-        top: 7rem;
-        left: 50%;
-        transform: translate(-50%, 0);
-        z-index: -1;
-      }
     }
   }
-  &__item-inner:first-child .step-progress-bar__item-inner::after {
-    content: "";
-    display: block;
-    width: 14.2rem;
-    height: 1rem;
-    background-color: #ccc;
-    position: absolute;
-    top: 7rem;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: -1;
-  }
-  &__icon:nth-child(1) {
-    width: 5rem;
-    height: 5rem;
-    padding: 0.5rem;
+  &__icon {
+    width: 5.5rem;
+    height: 5.5rem;
     position: relative;
-    &::after {
-      content: "";
-      height: 2rem;
-      width: 2rem;
-      background-color: $color-secondary;
-      display: block;
-      position: absolute;
-      top: 2.9rem;
-      left: 1.53rem;
-      transform: rotate(44deg);
-      z-index: -1;
-      //   border-radius: 0.3rem;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    &--done {
+      filter: grayscale(0%);
     }
   }
   &__status {
@@ -61,15 +29,40 @@
     height: 3rem;
     line-height: 3rem;
     text-align: center;
-    margin-top: 1rem;
     border-radius: 50%;
     background-color: #ccc;
     & > .fa {
       color: #fff;
     }
+    &--done {
+      background-color: $color-secondary;
+    }
   }
   &__tittle {
     margin-top: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgb(122, 122, 122);
+    transition: color 0.5s ease;
+    &--done {
+      color: $color-text;
+    }
+  }
+  &__container-status-bar {
+    width: calc(100% - 15rem);
+    height: 1rem;
+    background-color: #ccc;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 7rem;
+    left: 50%;
+    z-index: -1;
+    padding: 0.2rem 0;
+  }
+  &__status-bar {
+    height: 100%;
+    background-color: $color-secondary;
+    border-radius: 1rem;
+    transition: width 0.5s ease;
   }
 }

@@ -1,0 +1,19 @@
+@import "scss/variable.scss";
+.custom-text-address {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background-color: #fafafa;
+  border: 0.1rem solid #dbdbdb;
+  margin-top: 1rem;
+  & > .fa {
+    margin-right: 1rem;
+    color: $color-secondary;
+  }
+  & > input {
+    border: none;
+    background: transparent;
+    width: calc(100% - 4rem);
+    outline: none;
+    font-size: 1.6rem;
+  }
+}

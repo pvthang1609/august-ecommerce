@@ -38,6 +38,7 @@ function App() {
         <button className="upTop-btn" onClick={handlerUpTopBtn}>
           <i className="fa fa-angle-up" aria-hidden="true"></i>
         </button>
+
         <Notification />
       </BrowserRouter>
     </Suspense>

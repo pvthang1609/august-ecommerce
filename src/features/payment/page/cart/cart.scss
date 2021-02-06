@@ -1,7 +1,138 @@
 @import "scss/variable.scss";
 
+.cart {
+  background-color: #fff;
+  box-shadow: $shadow;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .heading__title {
-    font-size: 1.8rem;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+.item__content {
+  &--id {
+    margin: auto;
+    height: 3.5rem;
+    width: 3.5rem;
+    line-height: 3.5rem;
+    border-radius: 0.5rem;
+    border: 0.3rem solid #dbdbdb;
+    text-align: center;
     font-weight: 700;
-    padding: 1rem 0;
+    color: #747474;
+    margin-top: 3rem;
+  }
+  &--image {
+    border-radius: 0.3rem;
+  }
+  &--name {
+    padding: 1.5rem;
+    & > a {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-transform: capitalize;
+      font-weight: 700;
+      &:hover {
+        color: $color-secondary;
+        text-decoration: underline;
+      }
+    }
+    & > p:last-child > span {
+      font-weight: 700;
+      color: $color-secondary;
+    }
+  }
+  &--quantity {
+    @include flex();
+    background-color: #41436a;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    height: 3rem;
+    width: 9rem;
+    margin: 3rem auto 0 auto;
+    & > div {
+      width: 3rem;
+      line-height: 3rem;
+      text-align: center;
+      color: #ffffff;
+      font-weight: 700;
+    }
+  }
+  &--totalPrice {
+    font-weight: 700;
+    margin: 3.5rem auto 0 auto;
+    text-align: center;
+  }
+}
+.remove-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  background-color: #41436a;
+  margin: 3rem auto 0 auto;
+  display: block;
+  & > .fa {
+    color: #fff;
+  }
+}
+.cart-header {
+  background-color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+.cart-content {
+  margin-bottom: 1rem;
+  &--empty {
+    margin-bottom: 1rem;
+  }
+}
+.cart-footer {
+  &__total {
+    text-align: center;
+    font-weight: 700;
+    color: $color-secondary;
+    height: 100%;
+    line-height: 2.85rem;
+  }
+  &__discount {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+  }
+  background-color: #f1f1f1;
+  padding: 1rem 0;
+  &__discount-tag {
+    @include flex();
+    & > img {
+      height: 2.8rem;
+    }
+  }
+}
+.footer__title {
+  text-align: center;
+  &--order-price {
+    text-transform: uppercase;
+    font-weight: 700;
+    height: 100%;
+    line-height: 2.85rem;
+  }
+}
+.apply-btn {
+  padding: 0.5rem;
+}
+.decrement-btn,
+.increment-btn {
+  height: 100%;
+  width: 3rem;
+  background-color: #41436a;
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0;
 }

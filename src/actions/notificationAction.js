@@ -3,6 +3,8 @@ import {
   remove_notification,
 } from "features/notification/notificationSlice";
 
+const timeOut = 2000;
+
 export const notificationAddCart = (name) => (dispatch) => {
   dispatch(
     add_notification({
@@ -12,7 +14,7 @@ export const notificationAddCart = (name) => (dispatch) => {
   );
   setTimeout(() => {
     dispatch(remove_notification(0));
-  }, 5000);
+  }, timeOut);
 };
 
 export const notificationSuccessLogin = (name) => (dispatch) => {
@@ -24,9 +26,9 @@ export const notificationSuccessLogin = (name) => (dispatch) => {
   );
   setTimeout(() => {
     dispatch(remove_notification(0));
-  }, 5000);
+  }, timeOut);
 };
-export const notificationFailLogin = (message) => (dispatch) => {
+export const notificationFail = (message) => (dispatch) => {
   dispatch(
     add_notification({
       status: "fail",
@@ -35,5 +37,16 @@ export const notificationFailLogin = (message) => (dispatch) => {
   );
   setTimeout(() => {
     dispatch(remove_notification(0));
-  }, 5000);
+  }, timeOut);
+};
+export const notificationSuccessInvoice = (id_invoice) => (dispatch) => {
+  dispatch(
+    add_notification({
+      status: "success",
+      title: `Đơn hàng #${id_invoice} đã được tạo thành công! vui lòng để ý điện thoại chúng tôi sẽ liên hệ sớm với bạn`,
+    })
+  );
+  setTimeout(() => {
+    dispatch(remove_notification(0));
+  }, timeOut);
 };

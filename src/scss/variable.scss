@@ -9,6 +9,9 @@ $color-background: #1a3c3d;
 $color-primary: #d89c0f;
 $color-secondary: #f55d5c;
 
+$shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
 @mixin flex($justify: space-between, $align: center) {
   display: flex;
   justify-content: $justify;

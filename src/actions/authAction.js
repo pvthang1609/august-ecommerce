@@ -1,7 +1,7 @@
 import userApi from "api/userApi";
 import {
   notificationSuccessLogin,
-  notificationFailLogin,
+  notificationFail,
 } from "actions/notificationAction";
 
 import { user_request, user_success } from "features/authentication/userSlice";
@@ -9,18 +9,15 @@ import { user_request, user_success } from "features/authentication/userSlice";
 export const login = (email, password) => async (dispatch) => {
   dispatch(user_request());
   try {
-    const request = await userApi.login({ email: email, password: password });
-    const { token } = request;
-
-    dispatch(user_success(request));
-    if (request.message) {
-      throw new Error(request.message);
-    }
-    dispatch(notificationSuccessLogin(request.infoUser.name));
-    localStorage.setItem("info-user", JSON.stringify(request.infoUser));
+    const response = await userApi.login({ email: email, password: password });
+    const { token } = response;
+    dispatch(user_success(response));
+    dispatch(notificationSuccessLogin(response.infoUser.name));
+    localStorage.setItem("info-user", JSON.stringify(response.infoUser));
     localStorage.setItem("auth-token", token);
   } catch (err) {
-    dispatch(notificationFailLogin(err.message));
+    const message = err.response.data.errors;
+    dispatch(notificationFail(message));
   }
 };
 

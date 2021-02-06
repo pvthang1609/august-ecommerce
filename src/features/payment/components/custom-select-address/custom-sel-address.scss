@@ -1,7 +1,7 @@
 @import "scss/variable.scss";
-
-.custom-selBox {
+.custom-sel-address {
   position: relative;
+  margin-top: 1rem;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -12,7 +12,7 @@
     padding: 0 1.2rem;
     background-color: #fafafa;
     height: 3.8rem;
-    width: 17rem;
+    width: 100%;
     border-radius: 0.3rem;
     border: 0.1rem solid #dbdbdb;
     @include flex(space-between, center);
@@ -28,7 +28,9 @@
     }
   }
   &__sub-list {
-    width: 17rem;
+    width: 100%;
+    max-height: 32rem;
+    overflow-y: scroll !important;
     position: absolute;
     top: 4rem;
     left: 0;
@@ -38,23 +40,19 @@
     overflow: hidden;
     box-shadow: 0 0.2rem 0.5rem #c0c0c0;
     z-index: 2;
-  }
-}
-.sub-list__item {
-  @include flex(space-between, center);
-  cursor: pointer;
-  padding: 0.5rem 1.2rem;
-  & .fa-check {
-    display: none;
-  }
-  &:hover {
-    background-color: $color-secondary;
-  }
-  &:hover p {
-    color: #fff;
-  }
-  &:hover .fa-check {
-    display: block;
-    color: #fff;
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    &--item {
+      cursor: pointer;
+      padding: 0.5rem 1.2rem;
+      & .fa-check {
+        display: none;
+      }
+      &:hover {
+        background-color: $color-secondary;
+        color: #fff;
+      }
+    }
   }
 }

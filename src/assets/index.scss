@@ -12,6 +12,7 @@ html {
 }
 body {
   font-size: 1.6rem;
+  background-color: #fefefe;
 }
 a {
   text-decoration: none;
@@ -30,19 +31,33 @@ img {
 }
 
 .btn {
-  padding: 1rem 2rem;
   font-weight: 700;
   border: none;
   outline: none;
-  min-width: 15rem;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  background-color: #41436a;
+  color: #fff;
+  box-shadow: $shadow;
+  border-radius: 0.3rem;
+  transition: filter 0.3s ease;
+  &:active {
+    filter: hue-rotate(-30deg) !important;
+  }
   &:hover {
-    opacity: 0.9;
+    filter: brightness(1.2);
+  }
+  &--disable {
+    opacity: 0.5 !important;
+    cursor: default;
+    box-shadow: none !important;
   }
 }
 .banner {
   height: 30rem;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.btn + .btn {
+  margin-left: 1rem;
 }

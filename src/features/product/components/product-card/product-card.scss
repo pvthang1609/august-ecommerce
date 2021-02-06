@@ -101,7 +101,7 @@
   transition: all 0.3s ease;
 }
 .product-card__image:hover {
-  box-shadow: 0 0 0.5rem #8d8d8d;
+  box-shadow: $shadow;
 }
 .product-card__image:hover .product-card__group-btn {
   opacity: 1;

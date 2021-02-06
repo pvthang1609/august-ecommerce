@@ -1,0 +1,61 @@
+@import "scss/variable.scss";
+.payment__header {
+  width: 100%;
+  height: 5rem;
+  background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e2e2e2,
+    #c9d6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e2e2e2,
+    #c9d6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  padding: 0 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  border-radius: 0.3rem;
+  @include flex();
+  & > button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    & > .fa-arrow-left {
+      margin-right: 1rem;
+    }
+  }
+  &--notification {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+.next-btn {
+  width: 8.6rem;
+  padding: 0.5rem;
+  text-align: start;
+  & > .fa-arrow-right {
+    color: #fff;
+    margin-left: 0.3rem;
+    transition: margin-left 0.3s ease;
+  }
+  &:hover > .fa-arrow-right {
+    margin-left: 0.5rem;
+  }
+}
+.prev-btn {
+  width: 7.8rem;
+  padding: 0.5rem;
+  text-align: end;
+  & > .fa-arrow-left {
+    color: #fff;
+    margin-right: 0.3rem;
+    transition: margin-right 0.3s ease;
+  }
+  &:hover > .fa-arrow-left {
+    margin-right: 0.5rem;
+  }
+}

@@ -14,8 +14,15 @@ const cartSlice = createSlice({
       state.listCart.push(action.payload);
     },
     edit_cart: (state, action) => {
-      state.listCart[action.payload.index].quantity =
-        state.listCart[action.payload.index].quantity + action.payload.quantity;
+      if (action.payload.type === "increment") {
+        state.listCart[action.payload.index].quantity =
+          state.listCart[action.payload.index].quantity +
+          action.payload.quantity;
+      } else {
+        state.listCart[action.payload.index].quantity =
+          state.listCart[action.payload.index].quantity -
+          action.payload.quantity;
+      }
     },
     remove_cart: (state, action) => {
       state.listCart.splice(action.payload, 1);
