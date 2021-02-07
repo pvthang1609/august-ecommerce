@@ -3,7 +3,7 @@ import {
   remove_notification,
 } from "features/notification/notificationSlice";
 
-const timeOut = 2000;
+const timeOut = 2500;
 
 export const notificationAddCart = (name) => (dispatch) => {
   dispatch(
@@ -44,6 +44,17 @@ export const notificationSuccessInvoice = (id_invoice) => (dispatch) => {
     add_notification({
       status: "success",
       title: `Đơn hàng #${id_invoice} đã được tạo thành công! vui lòng để ý điện thoại chúng tôi sẽ liên hệ sớm với bạn`,
+    })
+  );
+  setTimeout(() => {
+    dispatch(remove_notification(0));
+  }, timeOut);
+};
+export const notificationSuccess = (message) => (dispatch) => {
+  dispatch(
+    add_notification({
+      status: "success",
+      title: `Tin nhắn hệ thống: ${message}`,
     })
   );
   setTimeout(() => {

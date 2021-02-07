@@ -1,5 +1,5 @@
 export const convertPrice = (number) => {
-  const arr = Array.from(String(number), Number);
+  const arr = Array.from(String(Math.round(number) * 1000), Number);
   const newArr = [];
   let j = 0;
   for (let i = arr.length - 1; i >= 0; i--) {

@@ -91,12 +91,20 @@
   }
 }
 .cart-footer {
-  &__total {
+  &__total p {
     text-align: center;
     font-weight: 700;
     color: $color-secondary;
     height: 100%;
     line-height: 2.85rem;
+    & span {
+      text-decoration: line-through;
+      color: #747474;
+    }
+    & > .fa-hand-o-right {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
   }
   &__discount {
     border: none;

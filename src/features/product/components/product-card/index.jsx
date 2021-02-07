@@ -108,7 +108,7 @@ export default function ProductCard({ product, index, className }) {
           <Link to={`/product/${_id}`}>{name}</Link>
         </div>
         <div className="product-card__text--price">
-          {price ? `Giá: ${convertPrice(price * 1000)}đ` : "Liên hệ"}
+          {price ? `Giá: ${convertPrice(price)}đ` : "Liên hệ"}
         </div>
       </div>
     </div>
