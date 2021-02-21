@@ -5,8 +5,12 @@ import {
   add_cart,
   edit_cart,
   remove_cart,
+  remove_all_cart,
 } from "features/payment/page/cart/cartSlice";
-import { edit_invoice } from "features/payment/page/invoiceSlide";
+import {
+  edit_invoice,
+  remove_invoice,
+} from "features/payment/page/invoiceSlide";
 import {
   notificationAddCart,
   notificationFail,
@@ -57,6 +61,8 @@ export const addToCart = (productId, quantity, size) => async (
     dispatch(notificationFail(err.message)); //???????????
   }
 };
+
+//
 export const editToCart = (
   productId,
   quantity = 1,
@@ -91,6 +97,16 @@ export const editToCart = (
     }
   }
 };
+
+//
+export const removeToCart = (index = "all") => async (dispatch) => {
+  if (index !== "all") {
+    dispatch(remove_cart(index));
+  } else {
+    dispatch(remove_all_cart());
+  }
+};
+
 export const addInvoiceToServer = () => async (dispatch, getState) => {
   const {
     invoice: { invoice },
@@ -104,4 +120,7 @@ export const addInvoiceToServer = () => async (dispatch, getState) => {
 };
 export const editToInvoice = (data) => async (dispatch) => {
   dispatch(edit_invoice(data));
+};
+export const removeToInvoice = () => async (dispatch) => {
+  dispatch(remove_invoice());
 };

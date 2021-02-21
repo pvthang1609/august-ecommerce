@@ -31,11 +31,11 @@
     &:hover .nav-bar__item > a::after {
       width: 100%;
     }
-    &:hover .nav-bar__listSub {
+    &:hover .nav-bar__list-sub {
       display: block;
     }
   }
-  &__listSub {
+  &__list-sub {
     display: none;
     border-radius: 1rem;
     position: absolute;
@@ -48,7 +48,7 @@
     box-shadow: 0 0 0.5rem #898989;
     z-index: 1;
   }
-  &__itemSub > a {
+  &__item-sub > a {
     padding: 0.5rem;
     transition: color 0.5s;
     &:hover {

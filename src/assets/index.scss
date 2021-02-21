@@ -31,7 +31,6 @@ img {
 }
 
 .btn {
-  font-weight: 700;
   border: none;
   outline: none;
   cursor: pointer;
@@ -60,4 +59,13 @@ img {
 }
 .btn + .btn {
   margin-left: 1rem;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

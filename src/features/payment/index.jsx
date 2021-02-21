@@ -1,12 +1,24 @@
 import React from "react";
 import { NotFound } from "assets/import";
-import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
+import {
+  Redirect,
+  Route,
+  Switch,
+  useLocation,
+  useRouteMatch,
+} from "react-router-dom";
 import CartPage from "./page/cart";
 import StepProgressBar from "./components/step-progress-bar";
 import "./payment.scss";
 import ShippingPage from "./page/shipping";
+import { useSelector } from "react-redux";
+import PaymentMethodPage from "./page/payment-method";
+import OrderSummary from "features/payment/components/order-summary";
+import classNames from "classnames";
+import CompletedOrderPage from "./page/completed-order";
 
 export default function Payment() {
+  const { invoice } = useSelector((state) => state.invoice);
   const match = useRouteMatch();
   const { pathname } = useLocation();
   return (
@@ -18,7 +30,7 @@ export default function Payment() {
               {pathname === "/payment/cart"
                 ? "Giỏ hàng"
                 : pathname === "/payment/shipping"
-                ? "Thông tin vận chuyển"
+                ? "Vận chuyển"
                 : null}
             </p>
             <div className="payment__header--notification">
@@ -31,20 +43,70 @@ export default function Payment() {
           </div>
         </div>
       </div>
-      <StepProgressBar
-        step={
-          pathname === "/payment/cart"
-            ? 0
-            : pathname === "/payment/shipping"
-            ? 1
-            : 2
-        }
-      />
-      <Switch>
-        <Route path={`${match.url}/shipping`} component={ShippingPage} />
-        <Route path={`${match.url}/cart`} component={CartPage} />
-        <Route component={NotFound} />
-      </Switch>
+      <div className="row">
+        <div className="col l-10 l-o-1">
+          <StepProgressBar
+            step={
+              pathname === "/payment/cart"
+                ? 0
+                : pathname === "/payment/shipping"
+                ? 1
+                : 2
+            }
+          />
+        </div>
+      </div>
+      <div className="row">
+        <Switch>
+          <Route path={`${match.url}/completed`}>
+            {!invoice ? (
+              <Redirect to={`${match.url}/cart`} />
+            ) : (
+              <div className="col l-8">
+                <CompletedOrderPage />
+              </div>
+            )}
+          </Route>
+
+          <Route path={`${match.url}/payment-method`}>
+            {!invoice ? (
+              <Redirect to={`${match.url}/cart`} />
+            ) : (
+              <div className="col l-8">
+                <PaymentMethodPage />
+              </div>
+            )}
+          </Route>
+
+          <Route path={`${match.url}/shipping`}>
+            {!invoice ? (
+              <Redirect to={`${match.url}/cart`} />
+            ) : (
+              <div className="col l-8">
+                <ShippingPage />
+              </div>
+            )}
+          </Route>
+
+          <Route path={`${match.url}/cart`}>
+            <div className="col l-12">
+              <CartPage />
+            </div>
+          </Route>
+
+          <Route>
+            <div className="col l-12">
+              <NotFound />
+            </div>
+          </Route>
+        </Switch>
+        {console.log(invoice)}
+        {invoice && (
+          <div className={classNames("col l-4", { "l-o-4": false })}>
+            <OrderSummary />
+          </div>
+        )}
+      </div>
     </main>
   );
 }

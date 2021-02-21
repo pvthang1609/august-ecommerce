@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CaretDown from "assets/image/caret-down.svg";
 import provinceApi from "api/provinceApi";
@@ -15,8 +15,9 @@ CusSelectAdd.propTypes = {
 
 function CusSelectAdd(props) {
   const { display, params, form, field, disable } = props;
-  const { setFieldValue } = form;
+  const { setFieldValue, errors, touched } = form;
   const { name } = field;
+  let isError = errors[name] && touched[name];
 
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState();
@@ -30,10 +31,25 @@ function CusSelectAdd(props) {
     try {
       const { results } = await provinceApi.get(params);
       setData(results);
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   }, [params]);
+
+  const selBoxRef = createRef();
+
+  useEffect(() => {
+    const func = (e) => {
+      if (selBoxRef.current && !selBoxRef.current.contains(e.target)) {
+        setIsOpen(false);
+        form.setFieldTouched(name, true);
+      }
+    };
+    document.addEventListener("mousedown", func);
+    return () => {
+      document.removeEventListener("mousedown", func);
+    };
+  }, [isOpen]);
 
   const handleClick = () => {
     if (disable) {
@@ -60,8 +76,12 @@ function CusSelectAdd(props) {
   };
 
   return (
-    <div className="custom-sel-address">
-      <div className="custom-sel-address__selected" onClick={handleClick}>
+    <div className="custom-sel-address" ref={selBoxRef}>
+      <div
+        className="custom-sel-address__selected"
+        onClick={handleClick}
+        style={isError ? { borderColor: " #C00504" } : null}
+      >
         <p>{display}</p>
         <img
           src={CaretDown}
@@ -69,6 +89,12 @@ function CusSelectAdd(props) {
           style={isOpen ? { transform: "rotate(180deg)" } : null}
         />
       </div>
+      {isError && (
+        <div className="custom-text-address__error">
+          <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          {errors[name]}
+        </div>
+      )}
       {isOpen && (
         <div className="custom-sel-address__sub-list">
           {data.map((item, index) => {

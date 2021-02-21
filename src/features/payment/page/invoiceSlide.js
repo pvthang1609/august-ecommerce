@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initInvoice = {
-  invoice: {},
+  invoice: null,
 };
 
 const invoiceSlice = createSlice({
@@ -13,7 +13,7 @@ const invoiceSlice = createSlice({
       state.invoice = { ...state.invoice, ...payload };
     },
     remove_invoice: (state) => {
-      state.invoice = {};
+      state.invoice = null;
     },
   },
 });

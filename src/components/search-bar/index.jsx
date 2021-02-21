@@ -1,16 +1,25 @@
-import productApi from "api/productApi";
 import React, { createRef, useEffect, useState } from "react";
+
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import "./search-bar.scss";
+
+import productApi from "api/productApi";
 import { convertPrice } from "custom-hooks/globalFunc";
+import { notificationFail } from "actions/notificationAction";
+
+import "./search-bar.scss";
 
 export default function SearchBar() {
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const inputRef = createRef();
+  const searchBar = createRef();
+
   const [value, setValue] = useState("");
   const [data, setData] = useState({ queryProducts: [] });
   const [open, setOpen] = useState(false);
+  const [loading, setloading] = useState(false);
 
   useEffect(() => {
     inputRef.current.value = "";
@@ -21,12 +30,19 @@ export default function SearchBar() {
     if (inputRef.current.value !== "") {
       const func = setTimeout(() => {
         const feetData = async () => {
-          const dataApi = await productApi.get({ name: value });
-          setData(dataApi);
-          setOpen(true);
+          setloading(true);
+          try {
+            const dataApi = await productApi.get({ name: value });
+            setData(dataApi);
+            setOpen(true);
+            setloading(false);
+          } catch (err) {
+            dispatch(notificationFail(err.message));
+            setloading(false);
+          }
         };
         feetData();
-      }, 1000);
+      }, 500);
       return () => {
         clearTimeout(func);
       };
@@ -41,18 +57,20 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="col l-3" style={{ position: "relative" }}>
-      <div className="search-bar">
-        <div className="search-bar__input">
+    <div className="search-bar" ref={searchBar}>
+      <div className="search-bar__input">
+        {loading ? (
+          <i className="fa fa-spinner" aria-hidden="true"></i>
+        ) : (
           <i className="fa fa-search" aria-hidden="true"></i>
-          <input
-            type="text"
-            placeholder="Tìm kiếm"
-            autoComplete="off"
-            onChange={handleChange}
-            ref={inputRef}
-          />
-        </div>
+        )}
+        <input
+          type="text"
+          placeholder="Tìm kiếm"
+          autoComplete="off"
+          onChange={handleChange}
+          ref={inputRef}
+        />
       </div>
       {open && data.queryProducts.length !== 0 ? (
         <div className="search-bar__result-block">
@@ -69,7 +87,7 @@ export default function SearchBar() {
                     </Link>
                     <p className="result-block__desc">{item.desc}</p>
                     <p className="result-block__price">{`Giá: ${convertPrice(
-                      item.price * 1000
+                      item.price
                     )}đ`}</p>
                   </div>
                   <div className="col l-3">

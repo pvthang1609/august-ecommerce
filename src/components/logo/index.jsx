@@ -1,8 +1,11 @@
 import React from "react";
+// import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
+
 import "./logo.scss";
 
-export default function Logo() {
+function Logo() {
   return (
     <div className="logo">
       <Link to="/">
@@ -11,3 +14,5 @@ export default function Logo() {
     </div>
   );
 }
+
+export default Logo;

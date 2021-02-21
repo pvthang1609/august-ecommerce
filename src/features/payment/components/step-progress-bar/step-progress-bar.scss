@@ -20,6 +20,7 @@
     position: relative;
     filter: grayscale(100%);
     transition: filter 0.5s ease;
+    transition-delay: 0.5s;
     &--done {
       filter: grayscale(0%);
     }
@@ -31,6 +32,8 @@
     text-align: center;
     border-radius: 50%;
     background-color: #ccc;
+    transition: all 0.5s ease;
+    transition-delay: 0.5s;
     & > .fa {
       color: #fff;
     }
@@ -44,6 +47,7 @@
     font-weight: 700;
     color: rgb(122, 122, 122);
     transition: color 0.5s ease;
+    transition-delay: 0.5s;
     &--done {
       color: $color-text;
     }

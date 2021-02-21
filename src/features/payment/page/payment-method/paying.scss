@@ -1,0 +1,53 @@
+@import "scss/variable.scss";
+.paying {
+  box-shadow: $shadow;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  &__item {
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border: 0.1rem solid transparent;
+    &-tittle {
+      width: 60%;
+    }
+    &-img {
+      @include flex(flex-start, center);
+      width: 30%;
+      & > img {
+        width: 5rem;
+        margin: 0 2rem 0 0;
+      }
+    }
+    &-main {
+      @include flex();
+    }
+    &--active {
+      border-radius: 0.3rem;
+      border: 0.1rem solid #f55d5c;
+      background: #ffafbd;
+      background: linear-gradient(to right, #ffc3a0, #ffafbd);
+    }
+    &:hover {
+      border-radius: 0.3rem;
+      border: 0.1rem solid #f55d5c;
+      background: #ffafbd;
+      background: linear-gradient(to right, #ffc3a0, #ffafbd);
+    }
+  }
+  &__footer {
+    margin-top: 1rem;
+    @include flex();
+  }
+}
+.Item-sub__credit-card {
+  @include flex(space-between, flex-start);
+  &-ui {
+    width: 60%;
+  }
+  &-input {
+    width: 40%;
+  }
+}

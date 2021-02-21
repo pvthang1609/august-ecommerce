@@ -1,12 +1,11 @@
 @import "scss/variable.scss";
 
-.shipping-page,
-.bill {
+.shipping-page {
   min-height: 50rem;
   box-shadow: $shadow;
   margin: 2rem 0;
   border-radius: 0.3rem;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 .logistics__heading {
   text-transform: uppercase;
@@ -20,7 +19,22 @@
   border-radius: 0.3rem;
   margin-top: 1rem;
   cursor: pointer;
+  border: 0.1rem solid transparent;
   &:hover {
+    border: 0.1rem solid $color-secondary;
+    background: #ffafbd; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #ffc3a0,
+      #ffafbd
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #ffc3a0,
+      #ffafbd
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  &--active {
     border: 0.1rem solid $color-secondary;
     background: #ffafbd; /* fallback for old browsers */
     background: -webkit-linear-gradient(
@@ -49,5 +63,20 @@
   &-shipping-cost {
     width: 25%;
     text-align: center;
+  }
+}
+.shipping-footer {
+  padding-top: 1rem;
+  @include flex();
+}
+.shipping-heading {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & > p {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: $color-danger;
   }
 }

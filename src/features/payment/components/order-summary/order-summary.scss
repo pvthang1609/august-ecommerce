@@ -1,0 +1,89 @@
+@import "scss/variable.scss";
+.order-summary {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  box-shadow: $shadow;
+  position: relative;
+  transition: all 0.3s ease;
+  &__receiver {
+    padding: 1rem 0;
+    border-bottom: 0.1rem dashed #ccc;
+    &-name {
+      text-transform: capitalize;
+    }
+    &-logistics {
+      text-transform: capitalize;
+    }
+  }
+  &__payment-method {
+    padding: 1rem 0;
+    border-bottom: 0.1rem dashed #ccc;
+  }
+  &__header {
+    text-align: center;
+    border-bottom: 0.1rem dashed #ccc;
+    &-date {
+      font-size: 1.4rem;
+      font-style: italic;
+    }
+    &-status {
+      font-size: 1.4rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__order-heading {
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+    border-bottom: 0.1rem solid #ccc;
+    &-price {
+      text-align: end;
+    }
+    margin-top: 1rem;
+  }
+  &__order-item {
+    margin-top: 0.5rem;
+    &-image {
+      border-radius: 0.3rem;
+      overflow: hidden;
+    }
+    &-name {
+      text-transform: capitalize;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    &-price {
+      text-align: end;
+    }
+  }
+  &__discount {
+    margin-top: 0.5rem;
+    &-title {
+      text-transform: uppercase;
+    }
+  }
+  &__total {
+    text-align: end;
+    border-top: 0.1rem dashed #ccc;
+    border-bottom: 0.1rem dashed #ccc;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    &-sum-key,
+    &-sum-value {
+      font-weight: 700;
+    }
+  }
+}
+.paid-stamp {
+  width: 50%;
+  position: absolute;
+  bottom: 15rem;
+  right: 6rem;
+  opacity: 0.6;
+}

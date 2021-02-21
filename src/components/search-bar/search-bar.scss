@@ -3,6 +3,7 @@
 .search-bar {
   @include flex();
   height: 100%;
+  position: relative;
   &__input {
     background-color: rgb(250, 250, 250);
     @include flex(flex-start, center);
@@ -12,6 +13,10 @@
     border: 0.1rem solid rgb(219, 219, 219);
     & .fa-search {
       padding: 1rem;
+    }
+    & .fa-spinner {
+      padding: 1rem;
+      animation: rotate 3s ease infinite;
     }
     & input {
       outline: none;

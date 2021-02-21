@@ -27,10 +27,13 @@ const cartSlice = createSlice({
     remove_cart: (state, action) => {
       state.listCart.splice(action.payload, 1);
     },
+    remove_all_cart: (state) => {
+      state.listCart = [];
+    },
   },
 });
 const { actions, reducer } = cartSlice;
 
-export const { add_cart, edit_cart, remove_cart } = actions;
+export const { add_cart, edit_cart, remove_cart, remove_all_cart } = actions;
 
 export default reducer;
