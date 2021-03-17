@@ -6,11 +6,13 @@ import { BRAND_LIST } from "assets/CONSTANTS";
 import ProductList from "features/product/components/product-list";
 import ProductCard from "features/product/components/product-card";
 import SingleBanner from "features/product/components/single-banner";
+import CountdownBanner from "features/product/components/countdown-banner";
+
+import Banner from "components/banner";
+
 import sBanner01 from "assets/image/single-banner/01.webp";
 import sBanner02 from "assets/image/single-banner/02.webp";
 import sBanner03 from "assets/image/single-banner/03.webp";
-import CountdownBanner from "features/product/components/countdown-banner";
-import Banner from "components/banner";
 
 export default function MainPage() {
   return (
