@@ -2,18 +2,23 @@
 
 .footer {
   background-color: #f8f8f8;
-  line-height: 1.6;
-  padding-bottom: 3rem;
-  &__content {
-    @include flex(space-between, flex-start);
-    &--blockList:first-child {
-      width: 35%;
-    }
-    &--blockList p span {
-      font-weight: 700;
-    }
-    &--blockList ul {
-      list-style-type: none;
-    }
+  padding: 2rem 0;
+  font-size: 1.8rem;
+  &__item > h3 {
+    margin-bottom: 1rem;
+  }
+  &__item > ul {
+    list-style-type: none;
+  }
+  &__item > ul > li {
+    padding: 0.2rem 0;
+    line-height: 1.3;
+  }
+  &__item > ul > li > span {
+    font-weight: 700;
+  }
+  &__item > ul > li > a:hover {
+    color: $color-secondary;
+    text-decoration: underline;
   }
 }

@@ -3,13 +3,7 @@ import React, { Suspense, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
-import {
-  HeaderTop,
-  HeaderMain,
-  Footer,
-  Notification,
-  NotFound,
-} from "assets/import";
+import { Header, Footer, Notification, NotFound } from "assets/import";
 import "./app.scss";
 
 const Product = React.lazy(() => import("features/product"));
@@ -35,8 +29,7 @@ function App() {
     <Suspense fallback={<p>Loading...</p>}>
       <BrowserRouter>
         <header>
-          <HeaderTop />
-          <HeaderMain />
+          <Header />
         </header>
         <Switch>
           <Redirect exact from="/" to="/product" />

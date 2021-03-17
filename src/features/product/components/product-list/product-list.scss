@@ -1,0 +1,48 @@
+@import "scss/variable.scss";
+.product-list__heading {
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.8rem;
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    width: 50rem;
+    height: 0.2rem;
+    background: $color-secondary;
+    transition: width 0.2s;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+  }
+  & > h2 {
+    display: inline-block;
+    background-color: #fff;
+    z-index: 1;
+    padding: 0 1rem;
+  }
+}
+
+.product-list__nav-bar {
+  padding: 2rem 0;
+  & .list {
+    list-style-type: none;
+    & .item {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+    }
+    & .item ~ .item {
+      margin-left: 0.5rem;
+    }
+    & .item--active {
+      background-color: $color-secondary;
+      box-shadow: $shadow;
+      color: #fff;
+    }
+  }
+}

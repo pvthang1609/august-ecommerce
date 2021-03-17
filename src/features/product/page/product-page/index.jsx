@@ -4,35 +4,42 @@ import { ProductSlideShow, ProductForm, BreadCrumbs } from "assets/import";
 
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailProduct } from "actions/productAction";
+import { getDetailProduct } from "actions/productAction";
 
 import "./product-page.scss";
 
 export default function ProductPage() {
+  const dispatch = useDispatch();
   const { productId } = useParams();
 
-  const dispatch = useDispatch();
-  const detailData = useSelector((state) => state.detailProduct);
-  const { detail, loading } = detailData;
-  const { name, price, img, info, favorite, desc } = detail;
+  const { products, loading, error } = useSelector((state) => state.product);
+  const { detail } = products;
+  const {
+    name,
+    price,
+    img = [],
+    info = [{ size: 35, code: "AGT" }],
+    favorite,
+    desc,
+  } = detail;
 
-  const [productCurrent, setProductCurrent] = useState(info[0]);
+  const [size, setSize] = useState(info[0]);
 
   useEffect(() => {
-    dispatch(detailProduct(productId));
+    dispatch(getDetailProduct(productId));
   }, [productId]);
 
   const handleSizeChange = (value) => {
-    const newProductCurrent = info.find((item) => item.size == value);
-    setProductCurrent(newProductCurrent);
+    const newSize = info.find((item) => item.size == value);
+    setSize(newSize);
   };
 
   const BREADCRUMBS_LIST = [{ name: name, url: "/" }];
 
   return (
-    <section>
+    <main>
       <BreadCrumbs list={BREADCRUMBS_LIST} />
-      {!loading && (
+      {!loading.detail && (
         <div className="container">
           <div className="product-detail">
             <div>
@@ -43,9 +50,12 @@ export default function ProductPage() {
                 <h1 className="product-info__product-name">{name}</h1>
                 <div className="product-info__block">
                   <p className="product-info__product-code">
-                    Mã sản phẩm: <span>{productCurrent.code}</span>
+                    Mã sản phẩm:{" "}
+                    <span>{size.code ? size.code : "loading"}</span>
                   </p>
-                  <p className="product-info__product-inventory">{`Hàng trong kho: ${productCurrent.inventory} chiếc.`}</p>
+                  <p className="product-info__product-inventory">{`Hàng trong kho: ${
+                    size.inventory || "loading"
+                  } chiếc.`}</p>
                 </div>
                 <div className="product-info__block">
                   <p className="product-info__product-price">{`${price}.000đ`}</p>
@@ -76,6 +86,7 @@ export default function ProductPage() {
           </div>
         </div>
       )}
-    </section>
+      {error.detail && <div>ERROR</div>}
+    </main>
   );
 }

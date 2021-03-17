@@ -1,18 +1,10 @@
 @import "scss/variable.scss";
 
 .brand-logo {
-  margin: 0 auto 5rem auto;
-  max-width: 120rem;
-  height: 10rem;
-  @include flex;
-  &__item {
-    padding: 1rem;
-    height: 10rem;
-    width: 10rem;
-    filter: opacity(0.5);
-    transition: filter 0.3s;
-  }
-  &__item:hover {
-    filter: opacity(1);
-  }
+  @include flex();
+  opacity: 0.5;
+}
+.brand-list__item {
+  width: calc(100% / 6);
+  padding: 5rem;
 }

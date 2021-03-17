@@ -1,0 +1,32 @@
+@import "scss/variable.scss";
+.header {
+  z-index: 10;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+  & > a {
+    color: #fff;
+  }
+}
+.header--sticky {
+  box-shadow: $shadow;
+  background-color: #fff;
+}
+.header__user {
+  @include flex();
+  height: 100%;
+  & > a {
+    font-size: 1.8rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    line-height: 3.5rem;
+    text-align: center;
+    background: yellow;
+    border-radius: 50%;
+    & > i {
+      color: #181818;
+    }
+  }
+}

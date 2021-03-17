@@ -1,89 +1,97 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { NewProductsDisplay, BrandLogo, Banner } from "assets/import";
-import {
-  BANNER_LIST,
-  MAN_CATE,
-  WOMAN_CATE,
-  BRAND_LIST,
-  banner7,
-  banner8,
-  banner9,
-} from "assets/CONSTANTS";
-
-import { useDispatch, useSelector } from "react-redux";
-import { listProduct } from "actions/productAction";
+import { BrandLogo } from "assets/import";
+import { BRAND_LIST } from "assets/CONSTANTS";
 
 import "./main-page.scss";
-import ProductCardSkeleton from "features/product/components/skeleton-loading/product-card-skeleton";
+import ProductList from "features/product/components/product-list";
+import ProductCard from "features/product/components/product-card";
+import SingleBanner from "features/product/components/single-banner";
+import sBanner01 from "assets/image/single-banner/01.webp";
+import sBanner02 from "assets/image/single-banner/02.webp";
+import sBanner03 from "assets/image/single-banner/03.webp";
+import CountdownBanner from "features/product/components/countdown-banner";
+import Banner from "components/banner";
 
 export default function MainPage() {
-  const dispatch = useDispatch();
-  const productList = useSelector((state) => state.listProductsMain);
-  const { listMale, listFemale, loading, fail } = productList;
-
-  useEffect(() => {
-    dispatch(listProduct());
-  }, [dispatch]);
-
   return (
-    <div>
-      <Banner bannerList={BANNER_LIST} />
-      {loading ? (
-        <ProductCardSkeleton width={720} numbItem={3} spaceItem={20} />
-      ) : fail ? (
-        <p>{fail}</p>
-      ) : (
-        <NewProductsDisplay
-          productList={listFemale}
-          title="#forwoman"
-          titleBg="vintage"
-          image={banner7}
-          categoryList={WOMAN_CATE}
-        />
-      )}
-      <section className="grid wide">
-        <div className="row">
-          <div className="col l-12 m-12 m-0">
-            <div
-              className="banner"
-              style={{ backgroundImage: `url(${banner8})` }}
-            >
-              <button className="btn btn--more">Xem thêm</button>
-            </div>
+    <main className="main-page">
+      <div className="grid">
+        <div className="row no-gutters">
+          <div className="col l-12">
+            <Banner />
+          </div>
+        </div>
+      </div>
+      <ProductList
+        heading="Hàng mới về"
+        filter={{ sortOrder: "newest" }}
+        nameState="new"
+      >
+        {(item, index) => {
+          return (
+            <ProductCard
+              product={item}
+              index={index}
+              className="col l-3 m-3 s-12"
+            />
+          );
+        }}
+      </ProductList>
+      <section className="grid pading--1">
+        <div className="row no-gutters">
+          <SingleBanner
+            className="col l-4 m-4 s-12"
+            content="Summer Travel Collection"
+            heading="Man's Collectons"
+            link={{ name: "show now", url: "#" }}
+            image={sBanner01}
+          />
+          <SingleBanner
+            className="col l-4 m-4 s-12"
+            content="Summer Travel Collection"
+            heading="Man's Collectons"
+            link={{ name: "show now", url: "#" }}
+            image={sBanner02}
+          />
+          <SingleBanner
+            className="col l-4 m-4 s-12"
+            content="Summer Travel Collection"
+            heading="Man's Collectons"
+            link={{ name: "show now", url: "#" }}
+            image={sBanner03}
+          />
+        </div>
+      </section>
+      <ProductList
+        heading="Được yêu thích nhất"
+        filter={{ sortOrder: "mostfav" }}
+        nameState="fav"
+      >
+        {(item, index) => {
+          return (
+            <ProductCard
+              product={item}
+              index={index}
+              className="col l-3 m-3 s-12"
+            />
+          );
+        }}
+      </ProductList>
+      <section className="grid pading--1">
+        <div className="row no-gutters">
+          <div className="col l-12 m-12 s-12">
+            <CountdownBanner />
           </div>
         </div>
       </section>
-      {loading ? (
-        <p>Loading...</p>
-      ) : fail ? (
-        <p>{fail}</p>
-      ) : (
-        <NewProductsDisplay
-          productList={listMale}
-          title="#forman"
-          titleBg="urban"
-          image={banner9}
-          categoryList={MAN_CATE}
-        />
-      )}
       <section className="grid wide">
         <div className="row">
-          <div className="col l-6 m-6 m-0">
-            <div
-              className="banner"
-              style={{ backgroundImage: `url(${banner7})` }}
-            ></div>
-          </div>
-          <div className="col l-6 m-6 m-0">
-            <div
-              className="banner"
-              style={{ backgroundImage: `url(${banner9})` }}
-            ></div>
+          <div className="col l-12 m-12 s-12">
+            <BrandLogo brandList={BRAND_LIST} />
           </div>
         </div>
       </section>
-      <BrandLogo brandList={BRAND_LIST} />
-    </div>
+    </main>
   );
 }

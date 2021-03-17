@@ -93,3 +93,13 @@ export const removeVietnameseTones = (str) => {
   str = str.trim();
   return str;
 };
+
+export const getTimeStamp = (year, month, date) => {
+  const start = new Date(year, month - 1, date);
+
+  return start.getTime();
+};
+
+export const twoDigit = (value) => {
+  return ("0" + value).slice(-2);
+};

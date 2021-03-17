@@ -10,16 +10,14 @@ export default function Product() {
   const match = useRouteMatch();
 
   return (
-    <main>
-      <Switch>
-        <Route exact path={match.path} component={MainPage} />
+    <Switch>
+      <Route exact path={match.path} component={MainPage} />
 
-        <Route path={`${match.path}/filter-page`} component={FilterPage} />
-        <Route path={`${match.path}/manager-page`} component={ManagerPage} />
-        <Route path={`${match.url}/:productId`} component={ProductPage} />
+      <Route path={`${match.path}/filter-page`} component={FilterPage} />
+      <Route path={`${match.path}/manager-page`} component={ManagerPage} />
+      <Route path={`${match.url}/:productId`} component={ProductPage} />
 
-        <Route component={NotFound} />
-      </Switch>
-    </main>
+      <Route component={NotFound} />
+    </Switch>
   );
 }

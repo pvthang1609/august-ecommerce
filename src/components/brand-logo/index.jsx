@@ -11,7 +11,7 @@ export default function BrandLogo({ brandList }) {
     <div className="brand-logo">
       {brandList.map((brand, index) => {
         return (
-          <div className="brand-logo__item" key={index}>
+          <div className="brand-list__item" key={index}>
             <img src={brand} alt="logo" />
           </div>
         );

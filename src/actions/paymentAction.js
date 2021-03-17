@@ -26,7 +26,7 @@ export const addToCart = (productId, quantity, size) => async (
   } = getState();
   try {
     const params = productId;
-    const response = await productApi.findOne(params);
+    const response = await productApi.getOne(params);
     const { _id, info, name, img, price } = response;
     const { inventory } = info.find((item) => item.size === size);
     const findItem = listCart.find(

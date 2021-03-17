@@ -65,7 +65,7 @@ function FilterPage() {
   );
 
   return (
-    <div>
+    <main>
       <BreadCrumbs list={BREADCRUMBS_LIST} />
       <div className="grid wide">
         <div className="row">
@@ -132,7 +132,7 @@ function FilterPage() {
             </div>
             <div className="row">
               {!loading && (
-                <ProductList className="col l-12" productList={listFilter}>
+                <ProductList productList={listFilter}>
                   {(item, index) => (
                     <ProductCard
                       className="col l-3"
@@ -149,7 +149,7 @@ function FilterPage() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

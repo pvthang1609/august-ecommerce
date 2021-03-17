@@ -1,0 +1,99 @@
+@import "scss/variable.scss";
+.countdown-banner {
+  background-color: #ffe431;
+  color: #120f03;
+  display: flex;
+  z-index: 1;
+  height: 50rem;
+  overflow: hidden;
+  margin-top: 2rem;
+  &__text {
+    width: 50%;
+    z-index: 0;
+    & .heading {
+      position: relative;
+      margin-top: 6rem;
+      text-align: center;
+      & > h2 {
+        font-family: $font-secondary;
+        font-size: 3.5rem;
+        font-weight: 700;
+        display: inline-block;
+        padding: 0 2rem;
+        background-color: #ffe431;
+      }
+      &::before {
+        content: "";
+        width: 65%;
+        height: 0.5rem;
+        background-color: #120f03;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        border-radius: 2rem;
+      }
+    }
+    & .content {
+      font-family: $font-secondary;
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 5.5rem;
+    }
+    & .countdown {
+      & > p {
+        font-family: $font-secondary;
+        margin-top: 5rem;
+        text-align: center;
+        font-size: 2.5rem;
+      }
+      & .time-number {
+        display: flex;
+        font-size: 6rem;
+        justify-content: center;
+        margin-top: 2rem;
+        &__item {
+          height: 10rem;
+          width: 10rem;
+          line-height: 11rem;
+          text-align: center;
+          background-color: #fff;
+          border-radius: 1rem;
+          font-family: $font-secondary;
+          box-shadow: $shadow;
+          & ~ .time-number__item {
+            margin-left: 1rem;
+          }
+        }
+      }
+      & .time-text {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        &__item {
+          width: 10rem;
+          text-align: center;
+          font-weight: 700;
+          font-family: $font-secondary;
+          & ~ .time-text__item {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+  &__image {
+    width: 50%;
+  }
+  &__image {
+    position: relative;
+    & > img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -20,7 +20,6 @@ import { convertPrice } from "custom-hooks/globalFunc";
 
 export default function ProductCard({ product, index, className }) {
   const { _id, name, price, tag, img, info } = product;
-
   const [isLike, setIsLike] = useState(false);
 
   const dispatch = useDispatch();

@@ -1,0 +1,14 @@
+@import "scss/variable.scss";
+
+.product-manage {
+  background: #fff;
+  min-height: 10rem;
+  padding: 1.5rem;
+  border-radius: 0.3rem;
+  box-shadow: $shadow;
+}
+.header-title {
+  padding: 0 0 1rem 0;
+  text-align: center;
+  font-weight: 700;
+}

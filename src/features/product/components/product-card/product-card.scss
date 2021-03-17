@@ -1,13 +1,14 @@
 @import "scss/variable.scss";
 .product-card {
   width: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   position: relative;
   &__image {
     border-radius: 0.3rem;
     overflow: hidden;
     position: relative;
     transition: box-shadow 0.3s ease;
+    box-shadow: $shadow;
     & img {
       display: block;
       margin-left: auto;
@@ -16,8 +17,8 @@
   }
   &__tag {
     position: absolute;
-    top: 2rem;
-    left: 0;
+    top: 1.5rem;
+    left: 2rem;
     padding: 0.2rem 0.5rem;
     text-transform: uppercase;
     color: #fff;
@@ -29,11 +30,12 @@
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 2rem;
+    top: 1.5rem;
     right: 2rem;
     outline: none;
     background: transparent;
     font-size: 2rem;
+    z-index: 1;
   }
   &__like-btn .fa {
     color: $color-secondary;
@@ -99,9 +101,6 @@
 }
 .product-card__image a img {
   transition: all 0.3s ease;
-}
-.product-card__image:hover {
-  box-shadow: $shadow;
 }
 .product-card__image:hover .product-card__group-btn {
   opacity: 1;

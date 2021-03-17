@@ -1,0 +1,45 @@
+@import "scss/variable.scss";
+
+.product-manage__item {
+  margin-top: 1rem;
+}
+.item-title {
+  height: 100%;
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 7rem;
+  & .fa {
+    cursor: pointer;
+  }
+  & .fa-pencil {
+    color: #d89c0f;
+  }
+  & .fa-trash {
+    color: #00c292;
+    margin-left: 1rem;
+  }
+}
+.item-title__img {
+  width: 70%;
+  margin: auto;
+}
+.item-title__inventory {
+  display: flex;
+  line-height: normal;
+  flex-wrap: wrap;
+  & > div {
+    text-align: left;
+    width: 50%;
+    text-transform: none;
+  }
+}
+.product-manage__group-btn {
+  margin-top: 1.5rem;
+  @include flex();
+  & > button {
+    padding: 0.5rem 1rem;
+    & > .fa {
+      color: #fff;
+    }
+  }
+}

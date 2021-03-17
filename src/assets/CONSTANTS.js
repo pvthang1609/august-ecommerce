@@ -1,11 +1,16 @@
-import banner1 from "assets/image/banner/banner1.webp";
-
 import nike from "assets/image/brand-logo/001-nike.svg";
 import adidas from "assets/image/brand-logo/002-adidas.svg";
 import swarm from "assets/image/brand-logo/003-swarm.svg";
 import beatsPill from "assets/image/brand-logo/004-beats-pill.svg";
 import fiverr from "assets/image/brand-logo/005-fiverr.svg";
 import xingLogo from "assets/image/brand-logo/007-xing-logo.svg";
+
+// import banner0 from "assets/image/banner/banner0.webp";
+import banner1 from "assets/image/banner/banner1.webp";
+import banner2 from "assets/image/banner/banner2.webp";
+import banner3 from "assets/image/banner/banner3.webp";
+import banner4 from "assets/image/banner/banner4.webp";
+import b01 from "assets/image/banner/01.jpg";
 
 const NAV_MAIN_LIST = [
   {
@@ -14,15 +19,15 @@ const NAV_MAIN_LIST = [
     exact: true,
   },
   {
-    name: "Cho Nữ",
+    name: "Giầy Nữ",
     link: "/product/filter-page",
   },
   {
-    name: "Cho Nam",
+    name: "Giày Nam",
     link: "/product/filter-page",
   },
   {
-    name: "Về Chúng tôi",
+    name: "Thông tin",
     link: "/about-us",
   },
 ];
@@ -61,8 +66,24 @@ const CATEGORY_LIST = [
 
 const BANNER_LIST = [
   {
+    name: "banner0",
+    url: b01,
+  },
+  {
     name: "banner1",
     url: banner1,
+  },
+  {
+    name: "banner2",
+    url: banner2,
+  },
+  {
+    name: "banner3",
+    url: banner3,
+  },
+  {
+    name: "banner4",
+    url: banner4,
   },
 ];
 
@@ -147,9 +168,18 @@ const NUMITEMDISPLAY_LIST = [
     url: "?limit=24",
   },
 ];
+const COLORCHART = {
+  c1: "#845ec2",
+  c2: "#ffc75f",
+  c3: "#ff5e78",
+  c4: "#00917c",
+  c5: "#8ac4d0",
+  c6: "#e6d5b8",
+};
+
+export { default as banner5 } from "assets/image/banner/banner5.webp";
+export { default as banner6 } from "assets/image/banner/banner6.webp";
 export { default as banner7 } from "assets/image/banner/banner7.webp";
-export { default as banner8 } from "assets/image/banner/banner8.webp";
-export { default as banner9 } from "assets/image/banner/banner9.webp";
 
 export {
   NAV_MAIN_LIST,
@@ -160,4 +190,48 @@ export {
   CATEGORY_LIST,
   SORTODER_LIST,
   NUMITEMDISPLAY_LIST,
+  COLORCHART,
 };
+
+// const overview = [
+//   {
+//     day: {
+//       date: {
+//         start: 1615131559, // timestamp
+//         end: 1615131559, // timestamp
+//       },
+//       orderNumber: 2,
+//       revenue: 300,
+//       profit: 50,
+//     },
+//     week: {
+//       date: {
+//         start: 1615131559, // timestamp
+//         end: 1615131559, // timestamp
+//       },
+//       orderNumber: 7,
+//       revenue: 1900,
+//       profit: 700,
+//     },
+//     month: {
+//       date: {
+//         start: 1615131559, // timestamp
+//         end: 1615131559, // timestamp
+//       },
+//       orderNumber: 30,
+//       revenue: 23000,
+//       profit: 15000,
+//     },
+//     year: {
+//       date: {
+//         start: 1615131559, // timestamp
+//         end: 1615131559, // timestamp
+//       },
+//       orderNumber: 100,
+//       revenue: 80000,
+//       profit: 60000,
+//     },
+//   },
+// ];
+
+// hàm lấy time start và end khi nhập date

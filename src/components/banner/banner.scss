@@ -1,12 +1,93 @@
 @import "scss/variable.scss";
-.carousel .control-dots .dot.selected,
-.carousel .control-dots .dot:hover {
-  box-shadow: none;
-  background: $color-secondary;
+.banner {
+    padding: 20rem 10rem 10rem 10rem;
+    background: rgb(30,51,74);
+    background: linear-gradient(111deg, rgba(30,51,74,1) 0%, rgba(163,22,20,1) 100%);
+    & .container {
+        position: relative;
+        max-width: 120rem;
+        margin: 0 auto;
+    }
+    &__product{
+        width: 35%;
+        position: relative;
+        left: 52%;
+        animation: animation 1s ease-in-out 1s infinite alternate;
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: -5rem;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            width: 80%;
+            height: 2rem;
+            background: #000;
+            border-radius: 50%;
+            filter: blur(1.5rem);
+            animation: animation-width 1s ease-in-out 2s infinite alternate;;
+        }
+        
+    }
+    &__name {
+        margin-left: -10%;
+        width: 100%;
+        font-family: $font-banner;
+        position: absolute;
+        left: 5%;
+        font-size: 22rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.027);
+        text-transform: uppercase;
+    }
+    &__frames {
+        left: 5%;
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        border: 1rem solid rgba(255, 255, 255, 0.445);
+        transform: rotate(1deg);
+    }
+    &__content {
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        text-align: center;
+        width: 30%;
+        & > h2 {
+            margin-top: 2rem;
+            color: #fff;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        & > p {
+            margin-top: 1rem;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic  ;
+        }
+        & > a {
+            display: inline-block;
+            font-size: 2.5rem;
+            margin-top: 1.8rem;
+            background: #ffe431;
+            padding: .5rem 1rem;
+        }
+    }
 }
-.carousel .control-dots .dot {
-  box-shadow: none;
-  outline: none;
-  width: 10px;
-  height: 10px;
+
+@keyframes animation {
+    0% { top: 0rem; }
+    100% { top: 1rem; }
+}
+
+@keyframes animation-width {
+    0% { 
+        width: 80%; 
+        filter: blur(1.5rem);
+    }
+    100% { 
+        width: 85%; 
+        filter: blur(1.3rem);
+    }
 }

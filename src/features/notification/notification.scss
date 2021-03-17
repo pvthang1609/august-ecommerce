@@ -2,4 +2,25 @@
   position: fixed;
   top: 2rem;
   right: 2rem;
+  z-index: 9999;
+
+}
+.notification-item-enter {
+  opacity: 0;
+  transform: translateX(5rem);
+}
+.notification-item-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease-in,  transform 0.3s ease-in;
+}
+.notification-item-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.notification-item-exit-active {
+  opacity: 0;
+  transform: translateX(5rem); 
+  transition: opacity 0.3s ease-in,  transform 0.3s ease-in;
+
 }

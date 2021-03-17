@@ -9,7 +9,7 @@ const productApi = {
     const url = "/api/products";
     return axiosClient.get(url, { params });
   },
-  findOne: (params) => {
+  getOne: (params) => {
     const url = "api/products";
     return axiosClient.get(`${url}/${params}`);
   },
@@ -17,6 +17,10 @@ const productApi = {
     const params = assignObject({}, ...manyParams);
     const url = "api/products";
     return axiosClient.get(url, { params });
+  },
+  delete: (id) => {
+    const url = "api/products";
+    return axiosClient.delete(`${url}/${id}`);
   },
 };
 

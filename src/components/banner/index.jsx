@@ -1,33 +1,31 @@
 import React from "react";
-import PropTypes from "prop-types";
-
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-
+// import PropTypes from "prop-types";
 import "./banner.scss";
+import bannerNew from "assets/image/banner/banner-new.png";
+import { Link } from "react-router-dom";
 
-Banner.propTypes = {
-  bannerList: PropTypes.array.isRequired,
-};
+Banner.propTypes = {};
 
-export default function Banner({ bannerList }) {
+function Banner() {
   return (
-    <Carousel
-      showThumbs={false}
-      infiniteLoop={true}
-      autoPlay={true}
-      showStatus={false}
-      emulateTouch={true}
-      transitionTime={1000}
-      interval={30000}
-    >
-      {bannerList.map((bannerList, index) => {
-        return (
-          <div key={index}>
-            <img src={bannerList.url} alt={bannerList.name} />
-          </div>
-        );
-      })}
-    </Carousel>
+    <div className="banner">
+      <div className="container">
+        <div className="banner__name">Pegasus 30</div>
+        <div className="banner__frames"></div>
+        <div className="banner__content">
+          <h2>BRAVE NEW WORLD</h2>
+          <p>
+            Take on anything the season throws your way in these functional
+            styles.
+          </p>
+          <Link to="#">Xem thêm</Link>
+        </div>
+        <div className="banner__product">
+          <img className="product__image" src={bannerNew} alt="bannerNew" />
+        </div>
+      </div>
+    </div>
   );
 }
+
+export default Banner;

@@ -1,0 +1,53 @@
+@import "scss/variable.scss";
+.chart-line {
+  background-color: #fff;
+  box-shadow: $shadow;
+  margin-top: 1rem;
+  border-radius: 0.3rem;
+  padding: 1.5rem;
+  &__header {
+    @include flex();
+    padding: 0 0 1rem 0;
+    border-bottom: 0.1rem solid #ccc;
+    & .select-btn {
+      padding: 1rem 1.8rem;
+      cursor: pointer;
+      background-color: #ccc;
+      border-radius: 50%;
+      & > .fa {
+        color: #fff;
+      }
+    }
+  }
+  &__overview {
+    @include flex();
+    padding: 3.5rem;
+    &-item {
+      width: calc(100% / 3);
+      text-align: center;
+      padding: 1.5rem 0;
+      & .title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      & .data {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+      }
+      & .overview {
+        font-size: 1.8rem;
+        color: $color-success;
+        & .fa-arrow-up {
+          color: $color-success;
+        }
+      }
+    }
+    &-item ~ &-item {
+      border-left: 0.1rem solid #ccc;
+    }
+  }
+  & .chart {
+    width: 100%;
+    height: 35rem;
+  }
+}
