@@ -1,6 +1,6 @@
 {
   "name": "auguste-commerce",
-  "proxy": "https://back-end-august.herokuapp.com/",
+  "proxy": "https://back-end-august.herokuapp.com",
   "version": "0.1.0",
   "engines": {
     "node": "14.x"
