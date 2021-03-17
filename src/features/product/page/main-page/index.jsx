@@ -3,7 +3,6 @@ import React from "react";
 import { BrandLogo } from "assets/import";
 import { BRAND_LIST } from "assets/CONSTANTS";
 
-import "./main-page.scss";
 import ProductList from "features/product/components/product-list";
 import ProductCard from "features/product/components/product-card";
 import SingleBanner from "features/product/components/single-banner";
