@@ -37,7 +37,7 @@ export default function ProductPage() {
   const BREADCRUMBS_LIST = [{ name: name, url: "/" }];
 
   return (
-    <main>
+    <main style={{ paddingTop: "7.1rem" }}>
       <BreadCrumbs list={BREADCRUMBS_LIST} />
       {!loading.detail && (
         <div className="container">

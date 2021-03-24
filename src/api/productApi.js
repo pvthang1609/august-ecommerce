@@ -6,20 +6,20 @@ const assignObject = (...object) => {
 
 const productApi = {
   get: (params) => {
-    const url = "/api/products";
+    const url = "/product";
     return axiosClient.get(url, { params });
   },
   getOne: (params) => {
-    const url = "api/products";
+    const url = "product";
     return axiosClient.get(`${url}/${params}`);
   },
   getMany: (...manyParams) => {
     const params = assignObject({}, ...manyParams);
-    const url = "api/products";
+    const url = "product";
     return axiosClient.get(url, { params });
   },
   delete: (id) => {
-    const url = "api/products";
+    const url = "product";
     return axiosClient.delete(`${url}/${id}`);
   },
 };
