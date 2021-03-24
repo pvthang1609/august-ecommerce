@@ -3,7 +3,8 @@ import completedTask from "assets/image/completed-task.svg";
 import "./completed-order.scss";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { removeToCart, removeToInvoice } from "actions/paymentAction";
+import { removeToCart } from "actions/cartAction";
+import { removeToInvoice } from "actions/paymentAction";
 // import PropTypes from "prop-types";
 
 CompletedOrderPage.propTypes = {};

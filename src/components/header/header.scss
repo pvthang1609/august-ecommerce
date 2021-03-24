@@ -14,8 +14,8 @@
   box-shadow: $shadow;
   background-color: #fff;
 }
-.header__user {
-  @include flex();
+.header-user {
+  @include flex(flex-start, center);
   height: 100%;
   & > a {
     font-size: 1.8rem;
@@ -23,10 +23,81 @@
     width: 3.5rem;
     line-height: 3.5rem;
     text-align: center;
-    background: yellow;
+    background: #e4e6eb;
     border-radius: 50%;
     & > i {
       color: #181818;
     }
   }
+}
+.user-item {
+  position: relative;
+  cursor: pointer;
+  & > a {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: #e4e6eb;
+    line-height: 3.5rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.8rem;
+  }
+  & ~ .user-item {
+    margin-left: 0.8rem;
+  }
+  & .number-notifi {
+    position: absolute;
+    top: -0.3rem;
+    right: -0.5rem;
+    padding: 0.2rem 0.5rem;
+    background: #f02849;
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 2rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  &.user-info {
+    @include flex(flex-start, center);
+    border-radius: 5rem;
+    transition: all 0.3s ease;
+    & > span {
+      margin-left: 0.5rem;
+      max-width: 5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding-right: 0.8rem;
+      display: inline-block;
+    }
+    &:hover {
+      background: #ccc;
+    }
+  }
+}
+.user-info__sub {
+  display: none;
+  position: absolute;
+  width: 150%;
+  top: 3.6rem;
+  right: 0;
+  background: #f02849;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  box-shadow: $shadow;
+  & > ul {
+    list-style-type: none;
+    & > li {
+      padding: 0.3rem;
+      color: #fff;
+      & > .fa {
+        color: #fff;
+        margin-right: 0.3rem;
+      }
+    }
+  }
+}
+.user-info:hover > .user-info__sub {
+  display: block;
 }

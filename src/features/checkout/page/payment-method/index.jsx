@@ -8,14 +8,14 @@ import Mastercard_Logo from "assets/image/payment-logo/Mastercard_Logo.svg";
 import JCB_Logo from "assets/image/payment-logo/JCB_Logo.svg";
 import { FastField, Form, Formik } from "formik";
 import classNames from "classnames";
-import CreditCard from "features/payment/components/credit-card";
-import CustomTextAddress from "features/payment/components/custom-text-address";
+import CreditCard from "features/checkout/components/credit-card";
+import CustomTextAddress from "features/checkout/components/custom-text-address";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { editToInvoice } from "actions/paymentAction";
 import { removeVietnameseTones } from "custom-hooks/globalFunc";
 // import { useHistory } from "react-router-dom";
-import DialogTerms from "features/payment/components/dialog-terms";
+import DialogTerms from "features/checkout/components/dialog-terms";
 
 // import PropTypes from "prop-types";
 

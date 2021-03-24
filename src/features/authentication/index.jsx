@@ -7,17 +7,16 @@ import LoginPage from "./page/login-page";
 import RegisterPage from "./page/register-page";
 
 export default function Auth() {
-  const authentication = useSelector((state) => state.authentication);
-  const { infoUser } = authentication;
+  const { user } = useSelector((state) => state.authentication);
   const match = useRouteMatch();
   return (
     <main>
       <Switch>
         <Route path={`${match.url}/admin`}>
-          {infoUser.isAdmin ? <AdminPage /> : <Redirect to="/" />}
+          {user.isAdmin ? <AdminPage /> : <Redirect to="/" />}
         </Route>
         <Route path={`${match.url}/login`}>
-          {infoUser ? <Redirect to="/" /> : <LoginPage />}
+          {user ? <Redirect to="/" /> : <LoginPage />}
         </Route>
         <Route path={`${match.url}/register`} component={RegisterPage} />
         <Route component={NotFound} />

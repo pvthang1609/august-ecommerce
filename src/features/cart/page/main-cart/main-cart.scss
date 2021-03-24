@@ -14,7 +14,7 @@
   text-align: center;
 }
 .item__content {
-  &--id {
+  &.id {
     margin: auto;
     height: 3.5rem;
     width: 3.5rem;
@@ -26,10 +26,10 @@
     color: #747474;
     margin-top: 3rem;
   }
-  &--image {
+  &.image {
     border-radius: 0.3rem;
   }
-  &--name {
+  &.name {
     padding: 1.5rem;
     & > a {
       overflow: hidden;
@@ -47,7 +47,7 @@
       color: $color-secondary;
     }
   }
-  &--quantity {
+  &.quantity {
     @include flex();
     background-color: #41436a;
     border-radius: 0.3rem;
@@ -63,7 +63,7 @@
       font-weight: 700;
     }
   }
-  &--totalPrice {
+  &.totalPrice {
     font-weight: 700;
     margin: 3.5rem auto 0 auto;
     text-align: center;
@@ -80,18 +80,15 @@
     color: #fff;
   }
 }
-.cart-header {
+.cart__header {
   background-color: #f1f1f1;
   margin-bottom: 1rem;
 }
-.cart-content {
+.cart__content {
   margin-bottom: 1rem;
-  &--empty {
-    margin-bottom: 1rem;
-  }
 }
-.cart-footer {
-  &__total p {
+.cart__footer {
+  & .total p {
     text-align: center;
     font-weight: 700;
     color: $color-secondary;
@@ -106,7 +103,7 @@
       margin-right: 0.5rem;
     }
   }
-  &__discount {
+  & .discount {
     border: none;
     padding: 0.5rem;
     border-radius: 0.3rem;
@@ -115,7 +112,7 @@
   }
   background-color: #f1f1f1;
   padding: 1rem 0;
-  &__discount-tag {
+  & .discount-tag {
     @include flex();
     & > img {
       height: 2.8rem;
@@ -124,15 +121,21 @@
 }
 .footer__title {
   text-align: center;
-  &--order-price {
+  &.order-price {
     text-transform: uppercase;
     font-weight: 700;
     height: 100%;
     line-height: 2.85rem;
   }
 }
-.apply-btn {
+.apply-btn,
+.next-btn {
   padding: 0.5rem;
+  font-size: 1.4rem;
+}
+.next-btn > .fa-arrow-right {
+  margin-left: 0.2rem;
+  color: #fff;
 }
 .decrement-btn,
 .increment-btn {
@@ -143,4 +146,11 @@
   color: #fff;
   font-weight: 700;
   border-radius: 0;
+}
+
+.no-thing-cart {
+  padding: 1rem;
+  & > p {
+    text-align: center;
+  }
 }

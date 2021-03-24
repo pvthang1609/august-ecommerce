@@ -30,7 +30,7 @@ function OrderSummary() {
       <div className="gird">
         <div className="row order-summary__header">
           <div className="col l-8">
-            <h2 className="order-summary__header-title">Thông tin đơn hàng</h2>
+            <h3 className="order-summary__header-title">Thông tin đơn hàng</h3>
             <p className="order-summary__header-date">02/01/2021</p>
             <p className="order-summary__header-status">{status}</p>
           </div>

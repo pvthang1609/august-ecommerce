@@ -7,17 +7,17 @@ import {
   useLocation,
   useRouteMatch,
 } from "react-router-dom";
-import CartPage from "./page/cart";
+import CartPage from "../cart/page/main-cart";
 import StepProgressBar from "./components/step-progress-bar";
-import "./payment.scss";
+import "./checkout.scss";
 import ShippingPage from "./page/shipping";
 import { useSelector } from "react-redux";
 import PaymentMethodPage from "./page/payment-method";
-import OrderSummary from "features/payment/components/order-summary";
+import OrderSummary from "features/checkout/components/order-summary";
 import classNames from "classnames";
 import CompletedOrderPage from "./page/completed-order";
 
-export default function Payment() {
+export default function Checkout() {
   const { invoice } = useSelector((state) => state.invoice);
   const match = useRouteMatch();
   const { pathname } = useLocation();
@@ -25,15 +25,9 @@ export default function Payment() {
     <main className="grid wide">
       <div className="row">
         <div className="col l-12">
-          <div className="payment__header">
-            <p>
-              {pathname === "/payment/cart"
-                ? "Giỏ hàng"
-                : pathname === "/payment/shipping"
-                ? "Vận chuyển"
-                : null}
-            </p>
-            <div className="payment__header--notification">
+          <div className="checkout__header">
+            <p>{pathname === "/checkout/shipping" ? "Vận chuyển" : null}</p>
+            <div className="checkout__header--notification">
               Free ship với đơn hàng trên 800k..!!
             </div>
             <button>
@@ -47,9 +41,9 @@ export default function Payment() {
         <div className="col l-10 l-o-1">
           <StepProgressBar
             step={
-              pathname === "/payment/cart"
+              pathname === "/checkout/cart"
                 ? 0
-                : pathname === "/payment/shipping"
+                : pathname === "/checkout/shipping"
                 ? 1
                 : 2
             }
@@ -70,7 +64,7 @@ export default function Payment() {
 
           <Route path={`${match.url}/payment-method`}>
             {!invoice ? (
-              <Redirect to={`${match.url}/cart`} />
+              <Redirect to={"/cart"} />
             ) : (
               <div className="col l-8">
                 <PaymentMethodPage />
@@ -80,7 +74,7 @@ export default function Payment() {
 
           <Route path={`${match.url}/shipping`}>
             {!invoice ? (
-              <Redirect to={`${match.url}/cart`} />
+              <Redirect to={"/cart"} />
             ) : (
               <div className="col l-8">
                 <ShippingPage />
@@ -88,7 +82,7 @@ export default function Payment() {
             )}
           </Route>
 
-          <Route path={`${match.url}/cart`}>
+          <Route path={"/cart"}>
             <div className="col l-12">
               <CartPage />
             </div>

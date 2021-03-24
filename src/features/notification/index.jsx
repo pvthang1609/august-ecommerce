@@ -5,11 +5,11 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./notification.scss";
 
 export default function Notification() {
-  const notification = useSelector((state) => state.notification);
+  const { notifications } = useSelector((state) => state.notification);
   return (
     <div className="notification">
       <TransitionGroup>
-        {notification.map((item, index) => {
+        {notifications.map((item, index) => {
           return (
             <CSSTransition
               key={index}

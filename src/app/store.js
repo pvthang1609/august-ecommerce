@@ -1,16 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "features/payment/page/cart/cartSlice";
+import cartReducer from "features/cart/cartSlice";
 import notificationReducer from "features/notification/notificationSlice";
-import filterProductReducer from "features/product/page/filter-page/filterProductSlice";
-import userReducer from "features/authentication/userSlice";
-import invoiceReducer from "features/payment/page/invoiceSlide";
+import authReducer from "features/authentication/authSlice";
+import invoiceReducer from "features/checkout/page/invoiceSlide";
 import productReducer from "features/product/productSlice";
 
 const rootReducer = {
-  filterProduct: filterProductReducer,
   cart: cartReducer,
   notification: notificationReducer,
-  authentication: userReducer,
+  authentication: authReducer,
   invoice: invoiceReducer,
   product: productReducer,
 };

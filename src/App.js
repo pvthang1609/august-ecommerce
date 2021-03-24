@@ -7,15 +7,16 @@ import { Header, Footer, Notification, NotFound } from "assets/import";
 import "./app.scss";
 
 const Product = React.lazy(() => import("features/product"));
-const Payment = React.lazy(() => import("features/payment"));
+const Checkout = React.lazy(() => import("features/checkout"));
 const Auth = React.lazy(() => import("features/authentication"));
+const Cart = React.lazy(() => import("features/cart"));
 
 function App() {
-  const { listCart } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(listCart));
-  }, [listCart]);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const handleGoTopClick = () => {
     window.scroll({
@@ -35,7 +36,8 @@ function App() {
           <Redirect exact from="/" to="/product" />
 
           <Route path="/product" component={Product} />
-          <Route path="/payment" component={Payment} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
           <Route path="/auth" component={Auth} />
 
           <Route component={NotFound} />

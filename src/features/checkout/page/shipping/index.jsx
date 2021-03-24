@@ -1,9 +1,9 @@
 import React from "react";
 import "./shipping.scss";
 import { Formik, Form, Field, FastField } from "formik";
-import CusSelectAdd from "features/payment/components/custom-select-address";
+import CusSelectAdd from "features/checkout/components/custom-select-address";
 import PropTypes from "prop-types";
-import CustomTextAddress from "features/payment/components/custom-text-address";
+import CustomTextAddress from "features/checkout/components/custom-text-address";
 import viettelpost from "assets/image/logistics/vietel.png";
 import ghtk from "assets/image/logistics/ghtk.png";
 import jtex from "assets/image/logistics/j-t-express.png";
@@ -87,7 +87,7 @@ function ShippingPage() {
               <div className="grid">
                 <div className="row">
                   <div className="col l-12">
-                    <h2>Thông tin người nhận</h2>
+                    <h3>Thông tin người nhận</h3>
                   </div>
                   <div className="col l-6">
                     <FastField
@@ -150,7 +150,7 @@ function ShippingPage() {
                 <div className="row">
                   <div className="col l-12">
                     <div className="shipping-heading">
-                      <h2>Thông tin vận chuyển</h2>
+                      <h3>Thông tin vận chuyển</h3>
                       <p>*Chi phí vận chuyển do người nhận thanh toán</p>
                     </div>
                   </div>

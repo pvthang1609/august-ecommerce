@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initProducts = {
   products: {
     detail: {},
+    filter: {},
   },
   loading: {},
   error: {},
@@ -38,6 +39,19 @@ const productSlice = createSlice({
       state.loading.detail = false;
     },
 
+    //get filter
+    product_filter_request: (state) => {
+      state.loading.filter = true;
+    },
+    product_filter_success: (state, action) => {
+      state.products.filter = action.payload;
+      state.loading.filter = false;
+    },
+    product_filter_fail: (state, action) => {
+      state.error.filter = action.payload;
+      state.loading.filter = false;
+    },
+
     //delete
     product_delete_request: (state) => {
       state.loading = true;
@@ -62,6 +76,9 @@ export const {
   product_detail_request,
   product_detail_success,
   product_detail_fail,
+  product_filter_request,
+  product_filter_success,
+  product_filter_fail,
   product_delete_request,
   product_delete_success,
   product_delete_fail,

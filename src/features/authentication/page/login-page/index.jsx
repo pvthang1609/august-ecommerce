@@ -9,7 +9,6 @@ import InputField from "features/authentication/components/custom-field/input-fi
 
 import { login } from "actions/authAction";
 import { useDispatch } from "react-redux";
-// import MapVn from "features/authentication/components/map";
 
 const initValue = {
   email: "",
@@ -33,13 +32,6 @@ export default function LoginPage() {
       <div className="row">
         <div className="col l-7">
           <img src={loginImg} alt="login" />
-          {/* <MapVn
-            list={[
-              { id: "77", amount: 243 },
-              { id: "06", amount: 130 },
-              { id: "24", amount: 500 },
-            ]}
-          /> */}
         </div>
         <div className="col l-5 login-form">
           <div className="login-form__header">

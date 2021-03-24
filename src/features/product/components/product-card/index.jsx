@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import NoImg from "assets/image/no-image.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import "./product-card.scss";
 
@@ -14,8 +14,8 @@ ProductCard.propTypes = {
   className: PropTypes.string,
 };
 
-import { useDispatch } from "react-redux";
-import { addToCart } from "actions/paymentAction";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "actions/cartAction";
 import { convertPrice } from "custom-hooks/globalFunc";
 
 export default function ProductCard({ product, index, className }) {
@@ -23,7 +23,9 @@ export default function ProductCard({ product, index, className }) {
   const [isLike, setIsLike] = useState(false);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
+  const { user } = useSelector((state) => state.authentication);
   const [isOpenSize, setIsOpenSize] = useState(false);
   const [size, setSize] = useState(info[0].size);
 
@@ -35,7 +37,11 @@ export default function ProductCard({ product, index, className }) {
     setIsLike(!isLike);
   };
   const handleAddBtnClick = (_id) => {
-    dispatch(addToCart(_id, 1, size));
+    if (user) {
+      dispatch(addToCart(_id, 1, size));
+    } else {
+      history.push("auth/login");
+    }
   };
 
   const handleChoiceSize = (value) => {
