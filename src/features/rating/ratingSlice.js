@@ -10,27 +10,28 @@ const ratingSlice = createSlice({
     name: "rating",
     initialState: initRating,
     reducers: {
-        rating_create_request: (state) => {
+        //get
+        rating_get_request: (state) => {
             state.loading = true;
         },
-        rating_create_success: (state, action) => {
+        rating_get_success: (state, action) => {
             state.ratingList = action.payload.ratingList;
             state.overlallRating = action.payload.overallRating;
             state.loading = false;
         },
-        rating_create_fail: (state, action) => {
+        rating_get_fail: (state, action) => {
             state.error = action.payload
             state.loading = false;
-        }
+        },
     }
 })
 
 const { actions, reducer } = ratingSlice;
 
 export const {
-    rating_create_request,
-    rating_create_success,
-    rating_create_fail,
+    rating_get_request,
+    rating_get_success,
+    rating_get_fail,
 } = actions;
 
 export default reducer;
