@@ -1,0 +1,36 @@
+@import "scss/variable.scss";
+
+.register-page {
+  padding: 1rem;
+  &__header {
+    & > h2 {
+      margin-top: 7rem;
+      font-size: 3.5rem;
+      text-align: center;
+    }
+    & > p {
+      margin-top: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+  &__main {
+    border-radius: 0.3rem;
+    box-shadow: $shadow;
+    overflow: hidden;
+  }
+  &__button {
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+.btn--register {
+  background-color: #2196ee;
+  padding: 1rem 1.5rem;
+  transition: all 0.3s ease;
+  & > .fa {
+    margin-left: 1rem;
+    color: #fff;
+    animation: rotate 3s ease infinite;
+  }
+}

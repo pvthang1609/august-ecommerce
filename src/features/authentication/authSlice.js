@@ -9,6 +9,7 @@ const initAuth = {
     : "",
   loading: {
     login: false,
+    register: false,
   },
 };
 
@@ -25,9 +26,18 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.loading.login = false;
     },
-    user_login_fail: (state, action) => {
-      state.error.login = action.payload;
+    user_login_fail: (state) => {
       state.loading.login = false;
+    },
+    //register
+    user_register_request: (state) => {
+      state.loading.register = true;
+    },
+    user_register_success: (state) => {
+      state.loading.register = false;
+    },
+    user_register_fail: (state) => {
+      state.loading.register = false;
     },
   },
 });
@@ -37,6 +47,9 @@ export const {
   user_login_request,
   user_login_success,
   user_login_fail,
+  user_register_request,
+  user_register_success,
+  user_register_fail,
 } = actions;
 
 export default reducer;

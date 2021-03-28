@@ -1,62 +1,56 @@
 @import "scss/variable.scss";
-.inputField {
-  background-color: #fafafa;
-  padding: 1rem 2rem;
-  border-radius: 0.3rem;
-  margin-bottom: 1rem;
-  border: 0.1rem solid #dbdbdb;
-  font-size: 1.8rem;
-  &__label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-    & p:first-child {
-      text-transform: uppercase;
-      font-weight: 700;
+
+.input-field {
+  padding: 1rem;
+  @include flex(flex-start, center);
+  border-bottom: 0.2rem solid #f8f9fa;
+  transition: border 0.3s ease;
+  &__icon {
+    width: 20%;
+    text-align: center;
+    font-size: 2.2rem;
+    & > .fa {
+      color: #b2b9c6;
     }
   }
-  &__input .fa-envelope,
-  &__input .fa-unlock-alt {
-    width: 16px;
-    color: $color-secondary;
-    margin-right: 20px;
+  &__content {
+    width: 80%;
+    & > .content-header {
+      @include flex(flex-start, center);
+      & > .label {
+        text-transform: capitalize;
+        color: #676d77;
+        transition: color 0.3s ease;
+      }
+    }
+    & .error-message {
+      color: $color-danger;
+      margin-left: auto;
+      font-size: 1.2rem;
+    }
+    & > .content-main {
+      @include flex(flex-start, center);
+      & > .input {
+        width: 90%;
+        & > input {
+          width: 100%;
+          padding: 0.5rem 0rem;
+          outline: none;
+          border: none;
+          background: transparent;
+        }
+      }
+      & > .status-icon {
+        width: 10%;
+        text-align: center;
+        font-size: 1.8rem;
+        & > .fa-exclamation-circle {
+          color: $color-danger;
+        }
+        & > .fa-check-circle {
+          color: $color-success;
+        }
+      }
+    }
   }
-  &__input input {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    width: 75%;
-  }
-}
-.text-error {
-  font-size: 14px;
-  color: $color-secondary;
-}
-.fa-exclamation-circle {
-  color: $color-secondary;
-  margin-left: 5px;
-}
-.text-enter {
-  opacity: 0;
-  &-active {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  }
-}
-.text-exit {
-  opacity: 1;
-  &-active {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-}
-.changeTypes__btn {
-  border: none;
-  background-color: transparent;
-  font-size: 1.8rem;
-  text-align: center;
-  outline: none;
-  float: right;
-  cursor: pointer;
 }

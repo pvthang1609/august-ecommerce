@@ -1,63 +1,72 @@
 @import "scss/variable.scss";
 
 .login-page {
-  &__inner {
-    @include flex(space-between, flex-start);
-  }
-}
-.login-form {
-  padding: 1rem 5rem;
+  padding: 1rem;
   &__header {
-    margin-bottom: 1rem;
+    & > h2 {
+      margin-top: 7rem;
+      font-size: 3.5rem;
+      text-align: center;
+    }
+    & > p {
+      margin-top: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+  &__main {
+    border-radius: 0.3rem;
+    box-shadow: $shadow;
+    overflow: hidden;
+  }
+  &__button {
+    margin-top: 2rem;
     text-align: center;
-    &--heading {
-      font-size: 3rem;
+  }
+  &__other-method {
+    margin-top: 1rem;
+    & > p {
+      text-align: center;
+      font-size: 1.4rem;
     }
-    &--greeting {
-      font-size: 2rem;
-      margin: 5rem 0 1rem 0;
-    }
-    &--link {
-      display: inline;
-      color: $color-secondary;
-      &:hover {
-        text-decoration: underline;
+    & > div {
+      @include flex(center, center);
+      margin-top: 1rem;
+      & > .logo {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 5.6rem;
+        box-shadow: $shadow;
+        cursor: pointer;
+        & ~ .logo {
+          margin-left: 1.5rem;
+        }
+        &.logo--google {
+          background-color: #e75e4d;
+        }
+        &.logo--facebook {
+          background-color: #1773ea;
+        }
+        &.logo--twitter {
+          background-color: #31c6f7;
+        }
+        & > .fa {
+          font-size: 2.5rem;
+          color: #fff;
+        }
       }
     }
-    &--title {
-      font-size: 1.4rem;
-      font-style: italic;
-      margin-bottom: 3.5rem;
-    }
   }
 }
-.btn--signin {
-  width: 100%;
-  color: #fff;
-  background-color: $color-secondary;
-}
-.other-signin {
-  & > p {
-    font-weight: 700;
-    text-align: center;
-    margin: 1rem 0;
-  }
-  & .group-btn {
-    @include flex();
-  }
-}
-
-.btn--gg,
-.btn--fb {
-  width: calc((100% - 1.6rem) / 2);
+.btn--login {
+  background-color: #2196ee;
+  padding: 1rem 1.5rem;
+  transition: all 0.3s ease;
   & > .fa {
+    margin-left: 1rem;
     color: #fff;
+    animation: rotate 3s ease infinite;
   }
-}
-
-.btn--fb {
-  background-color: #1196f5;
-}
-.btn--gg {
-  background-color: #ee4239;
 }

@@ -35,7 +35,7 @@ export default function ProductPage() {
     setSize(newSize);
   };
 
-  const BREADCRUMBS_LIST = [{ name: name, url: "/" }];
+  const BREADCRUMBS_LIST = [{ name: name, url: "#" }];
 
   return (
     <main style={{ paddingTop: "7.1rem" }}>

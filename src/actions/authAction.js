@@ -1,16 +1,19 @@
 import userApi from "api/userApi";
-import { notificationSuccess } from "./notificationAction";
+import { notificationSuccess, notificationFail } from "./notificationAction";
 
 import {
   user_login_request,
   user_login_success,
   user_login_fail,
+  user_register_request,
+  user_register_success,
+  user_register_fail,
 } from "features/authentication/authSlice";
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (data) => async (dispatch) => {
   dispatch(user_login_request());
   try {
-    const response = await userApi.login({ email: email, password: password });
+    const response = await userApi.login(data);
     const { token } = response;
     dispatch(user_login_success({ user: response.infoUser, token: token }));
     dispatch(
@@ -21,11 +24,25 @@ export const login = (email, password) => async (dispatch) => {
     localStorage.setItem("user", JSON.stringify(response.infoUser));
     localStorage.setItem("auth-token", token);
   } catch (error) {
-    const message = error.response.data.errors;
-    dispatch(user_login_fail(message));
+    const message = error.response.data.error;
+    dispatch(notificationFail(message));
+    dispatch(user_login_fail());
   }
 };
 
 export const logout = () => {
   localStorage.clear();
+};
+
+export const register = (data) => async (dispatch) => {
+  dispatch(user_register_request());
+  try {
+    const response = await userApi.register(data);
+    dispatch(user_register_success());
+    dispatch(notificationSuccess(response.message));
+  } catch (error) {
+    const message = error.response.data.error;
+    dispatch(notificationFail(message));
+    dispatch(user_register_fail());
+  }
 };

@@ -1,74 +1,76 @@
 import React, { useState } from "react";
-import { CSSTransition } from "react-transition-group";
 import PropTypes from "prop-types";
+import "./input-field.scss";
 
 InputField.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
-  icon: PropTypes.object,
+  icon: PropTypes.string,
   placeholder: PropTypes.string,
   field: PropTypes.object,
   form: PropTypes.object,
+  id: PropTypes.string,
 };
 
-import "./input-field.scss";
-
-export default function InputField({
-  label,
-  type,
-  icon,
-  placeholder,
-  field,
-  form,
-}) {
+function InputField(props) {
+  const { label, type, icon, placeholder, field, form } = props;
+  const { values } = form;
   const { name } = field;
   const { errors, touched } = form;
-  const prop = errors[name] && touched[name] ? true : false;
 
-  const [inputType, setInputType] = useState(type);
+  const [isFocus, setIsFocus] = useState(false);
 
-  const changeTypes = () => {
-    if (inputType === "password") {
-      setInputType("text");
-      return;
-    }
-    setInputType("password");
+  const handleFocus = () => {
+    setIsFocus(true);
+  };
+  const handleBlur = (e) => {
+    field.onBlur(e);
+    setIsFocus(false);
   };
 
+  const isSuccess = !(touched[name] && errors[name]) && values[name] !== "";
+  const isError = touched[name] && errors[name];
+
   return (
-    <div className="inputField">
-      <div className="inputField__label">
-        <p>{label}</p>
-        <CSSTransition
-          in={prop}
-          timeout={300}
-          mountOnEnter
-          unmountOnExit
-          classNames="text"
-        >
-          <p className="text-error">
-            {errors[name]}
-            <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
-          </p>
-        </CSSTransition>
+    <div
+      className="input-field"
+      style={isFocus ? { borderBottom: "0.2rem solid #2196ee" } : null}
+    >
+      <div className="input-field__icon">
+        <i className={`fa ${icon}`} aria-hidden="true"></i>
       </div>
-      <div className="inputField__input">
-        {icon}
-        <input {...field} type={inputType} placeholder={placeholder} />
-        {type === "password" ? (
-          <button
-            type="button"
-            className="changeTypes__btn"
-            onClick={changeTypes}
+      <div className="input-field__content">
+        <div className="content-header">
+          <div
+            className="label"
+            style={isFocus || isSuccess ? { color: "#2196ee" } : null}
           >
-            {inputType === "password" ? (
-              <i className="fa fa-eye" aria-hidden="true"></i>
-            ) : (
-              <i className="fa fa-eye-slash" aria-hidden="true"></i>
+            {label}
+          </div>
+          {isError && <div className="error-message">{errors[name]}</div>}
+        </div>
+        <div className="content-main">
+          <div className="input">
+            <input
+              {...field}
+              type={type}
+              placeholder={placeholder}
+              onFocus={handleFocus}
+              onBlur={(e) => handleBlur(e)}
+            />
+          </div>
+          <div className="status-icon">
+            {isError && (
+              <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
             )}
-          </button>
-        ) : null}
+            {isSuccess && (
+              <i className="fa fa-check-circle" aria-hidden="true"></i>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
+export default InputField;

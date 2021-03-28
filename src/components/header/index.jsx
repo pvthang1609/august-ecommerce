@@ -60,7 +60,7 @@ function Header() {
                 )}
               </div>
               <div className="user-item user-info">
-                <Link to={!user ? "#" : "#"}>
+                <Link to={!user ? "/auth/login" : "#"}>
                   <i className="fa fa-user" aria-hidden="true"></i>
                 </Link>
                 {user ? <span>{user.name}</span> : <span>Login</span>}
