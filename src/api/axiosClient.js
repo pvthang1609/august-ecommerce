@@ -3,7 +3,7 @@ import axios from "axios";
 import queryString from "query-string";
 
 export const axiosClient = axios.create({
-  baseURL: "http://127.0.0.1:5000",
+  baseURL: "https://back-end-august.herokuapp.com",
   headers: {
     "content-type": "application/json",
     "auth-token": localStorage.getItem("auth-token"),
