@@ -69,8 +69,12 @@ function FilterPage() {
 
   return (
     <main style={{ paddingTop: "7.1rem" }}>
-      <BreadCrumbs list={BREADCRUMBS_LIST} />
       <div className="grid wide">
+        <div className="row">
+          <div className="col l-12">
+            <BreadCrumbs list={BREADCRUMBS_LIST} />
+          </div>
+        </div>
         <div className="row">
           <div className="col l-2">
             <div className="filter-page__heading">Danh mục</div>

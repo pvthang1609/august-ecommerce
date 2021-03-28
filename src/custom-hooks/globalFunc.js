@@ -103,3 +103,11 @@ export const getTimeStamp = (year, month, date) => {
 export const twoDigit = (value) => {
   return ("0" + value).slice(-2);
 };
+
+export const getDateByDatestring = (string) => {
+  const date = new Date(string);
+  const day = date.getDay();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  return `${twoDigit(day)}-${twoDigit(month)}-${year}`;
+};

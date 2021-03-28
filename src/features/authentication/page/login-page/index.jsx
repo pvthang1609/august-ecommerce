@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, FastField } from "formik";
 import loginImg from "assets/image/login/login.svg";
-import * as Yup from "yup";
+import { SigninSchema } from "app/yup.validation";
 
 import "./login-page.scss";
 import { Link } from "react-router-dom";
@@ -14,15 +14,6 @@ const initValue = {
   email: "",
   password: "",
 };
-
-const SigninSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Email không hợp lệ..!")
-    .required("Vui lòng nhập email."),
-  password: Yup.string()
-    .min(8, "Password không hợp lệ.")
-    .required("Vui lòng nhập password."),
-});
 
 export default function LoginPage() {
   const dispatch = useDispatch();

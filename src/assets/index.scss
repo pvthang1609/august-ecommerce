@@ -76,3 +76,7 @@ img {
     transform: rotate(360deg);
   }
 }
+
+.row ~ .row {
+  margin-top: 1rem;
+}

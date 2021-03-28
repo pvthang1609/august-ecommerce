@@ -1,0 +1,59 @@
+@import "scss/variable.scss";
+
+.rating-form {
+  margin-top: 2rem;
+  &__header {
+    @include flex();
+  }
+  &__star {
+    & > .error {
+      display: inline-block;
+      font-size: 1.8rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-right: 0.5rem;
+      & > .fa-exclamation-circle {
+        color: $color-danger;
+      }
+    }
+  }
+  &__star > label {
+    cursor: pointer;
+  }
+  &__star > label > .fa {
+    font-size: 1.8rem;
+    color: #fdc91b;
+    margin-right: 0.3rem;
+  }
+  &__comment {
+    margin-top: 1rem;
+    @include flex();
+    background-color: #fafafa;
+    border: 0.1rem solid #dbdbdb;
+    border-radius: 0.3rem;
+    transition: all 0.3s ease;
+    & > input {
+      width: 95%;
+      padding: 1rem;
+      outline: none;
+      border: none;
+      background: transparent;
+    }
+    & > .error {
+      font-size: 1.8rem;
+      width: 5%;
+      text-align: center;
+      transition: all 0.3s ease;
+      & > .fa-exclamation-circle {
+        color: $color-danger;
+      }
+    }
+  }
+  &__button {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+.btn--submit-rating {
+  padding: 1rem 2rem;
+}

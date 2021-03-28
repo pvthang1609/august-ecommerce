@@ -26,7 +26,6 @@ export const provinceAxiosClient = axios.create({
   baseURL: "https://vapi.vnappmob.com",
   headers: {
     "content-type": "application/json",
-    "auth-token": localStorage.getItem("auth-token"),
   },
   paramsSerializer: (params) => queryString.stringify(params),
 });
