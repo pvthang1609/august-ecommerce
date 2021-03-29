@@ -15,14 +15,7 @@ export default function ProductPage() {
 
   const { products, loading, error } = useSelector((state) => state.product);
   const { detail } = products;
-  const {
-    name,
-    price,
-    img = [],
-    info = [{ size: 35, code: "AGT" }],
-    favorite,
-    desc,
-  } = detail;
+  const { name, price, img = [], info = [{}], favorite, desc } = detail;
 
   const [size, setSize] = useState(info[0]);
 

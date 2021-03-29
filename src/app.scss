@@ -1,4 +1,98 @@
 @import "scss/variable.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+  color: $color-text;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  background-color: #fefefe;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  color: #fff;
+  box-shadow: $shadow;
+  border-radius: 0.3rem;
+  transition: filter 0.3s ease;
+  &:active {
+    transform: scale(0.9);
+    filter: hue-rotate(-30deg) !important;
+  }
+  &:hover {
+    filter: brightness(1.2);
+  }
+  &--disable {
+    opacity: 0.5 !important;
+    cursor: default;
+    box-shadow: none !important;
+  }
+}
+.btn + .btn {
+  margin-left: 1rem;
+}
+
+.mg-top--1 {
+  margin-top: 1rem;
+}
+.bd-bot--1 {
+  border-bottom: 0.1rem solid #ccc;
+}
+.bg-c--ccc {
+  background-color: rgb(233, 233, 233);
+  padding: 0.3rem 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.row ~ .row {
+  margin-top: 1rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .main__header {
   @include flex(space-between, center);
   height: 10rem;
