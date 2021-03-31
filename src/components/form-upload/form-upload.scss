@@ -1,0 +1,72 @@
+@import "scss/variable.scss";
+
+.form-upload {
+  min-width: 50rem;
+  position: relative;
+}
+.upload-main {
+  width: 50rem;
+  border-radius: 0.3rem;
+  box-shadow: $shadow;
+  overflow: hidden;
+  & .form-upload__review {
+    background-color: #fff;
+    border-radius: 1rem;
+    position: relative;
+    padding: 2rem 2rem 0 2rem;
+    & .photo-default {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 35%;
+    }
+  }
+  & .form-upload__group-btn {
+    padding: 2rem;
+    @include flex();
+    & > button {
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      background-color: sandybrown;
+      box-shadow: none;
+    }
+  }
+}
+.upload-crop {
+  display: none;
+}
+.form-upload__status {
+  &-item ~ .form-upload__status-item {
+  }
+  &-item {
+    padding: 1rem;
+    @include flex(flex-start, center);
+    position: relative;
+    & > .percent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      z-index: -1;
+      background-color: skyblue;
+    }
+    & > .image {
+      width: 6rem;
+      border-radius: 0.3rem;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+    & > .action {
+      margin-left: auto;
+      & > button {
+        padding: 0.2rem 0.5rem;
+        background-color: sandybrown;
+        box-shadow: none;
+        & > .fa {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
