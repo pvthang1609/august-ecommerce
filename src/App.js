@@ -5,7 +5,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import { Header, Footer, Notification, NotFound } from "assets/import";
 import "./app.scss";
-import FormUpload from "components/form-upload";
+import UploadFile from "features/upload/component/UploadFile";
 
 const Product = React.lazy(() => import("features/product"));
 const Checkout = React.lazy(() => import("features/checkout"));
@@ -38,7 +38,7 @@ function App() {
             <Redirect exact from="/" to="/product" />
 
             <Route path="/product" component={Product} />
-            <Route path="/test" component={FormUpload} />
+            <Route path="/test" component={UploadFile} />
             <Route path="/cart" component={Cart} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/auth" component={Auth} />

@@ -10,10 +10,11 @@ InputField.propTypes = {
   field: PropTypes.object,
   form: PropTypes.object,
   id: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 function InputField(props) {
-  const { label, type, icon, placeholder, field, form } = props;
+  const { label, type, icon, placeholder, field, form, disabled } = props;
   const { values } = form;
   const { name } = field;
   const { errors, touched } = form;
@@ -57,6 +58,7 @@ function InputField(props) {
               placeholder={placeholder}
               onFocus={handleFocus}
               onBlur={(e) => handleBlur(e)}
+              disabled={disabled}
             />
           </div>
           <div className="status-icon">

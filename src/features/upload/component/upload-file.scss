@@ -1,7 +1,6 @@
 @import "scss/variable.scss";
 
 .upload-main {
-  width: 50rem;
   border-radius: 0.3rem;
   box-shadow: $shadow;
   overflow: hidden;
@@ -42,7 +41,7 @@
       z-index: -1;
     }
     & > .content {
-      width: 45%;
+      width: 35%;
       & > .content-name {
         font-size: 1.4rem;
         font-weight: 700;
@@ -71,11 +70,15 @@
         }
       }
     }
+    & > .status {
+      color: $color-success;
+      margin-right: auto;
+      font-size: 3rem;
+    }
   }
 }
 .progress-numb {
   margin-left: auto;
   font-size: 3rem;
   color: #31326f;
-  font-weight: 700;
 }

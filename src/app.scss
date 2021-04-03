@@ -41,11 +41,11 @@ img {
   border-radius: 0.3rem;
   transition: filter 0.3s ease;
   &:active {
-    transform: scale(0.9);
+    transform: scale(0.95);
     filter: hue-rotate(-30deg) !important;
   }
   &:hover {
-    filter: brightness(1.2);
+    filter: brightness(0.9);
   }
   &--disable {
     opacity: 0.5 !important;

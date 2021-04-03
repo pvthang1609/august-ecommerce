@@ -1,0 +1,30 @@
+@import "scss/variable.scss";
+
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.664);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include flex(center, center);
+  &-inner {
+    max-width: 50%;
+  }
+}
+.dialog-header {
+  height: 3.5rem;
+  position: relative;
+  & > .btn--close {
+    position: absolute;
+    top: 0;
+    right: -3rem;
+    background: transparent;
+    box-shadow: none;
+    & > .fa {
+      font-size: 3rem;
+      color: #fff;
+    }
+  }
+}

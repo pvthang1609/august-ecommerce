@@ -1,0 +1,95 @@
+@import "scss/variable.scss";
+
+.image-field {
+  padding: 1rem;
+  @include flex(flex-start, center);
+  border-bottom: 0.2rem solid #f8f9fa;
+  transition: border 0.3s ease;
+  &__icon {
+    width: 20%;
+    text-align: center;
+    font-size: 2.2rem;
+    & > .fa {
+      color: #b2b9c6;
+    }
+  }
+  &__content {
+    width: 80%;
+    & > .content-header {
+      @include flex(flex-start, center);
+      & > .label {
+        text-transform: capitalize;
+        color: #676d77;
+        transition: color 0.3s ease;
+      }
+    }
+    & .error-message {
+      color: $color-danger;
+      margin-left: auto;
+      font-size: 1.2rem;
+    }
+    & > .content-main {
+      @include flex(flex-start, center);
+      & > .image-review {
+        @include flex(flex-start, center);
+        width: 90%;
+        margin-top: 0.5rem;
+        & > .image {
+          max-height: 6rem;
+          max-width: 6rem;
+          border-radius: 0.3rem;
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
+          & ~ .image {
+            margin-left: 0.5rem;
+          }
+          & > .btn--close {
+            transition: all 0.3s ease;
+            background: transparent;
+            box-shadow: none;
+            position: absolute;
+            top: 0;
+            padding: 0 0.2rem;
+            right: 0rem;
+            transform: translateX(2rem);
+            & > .fa {
+              color: #fff;
+            }
+          }
+          &:hover .btn--close {
+            transform: translateX(0);
+          }
+        }
+        & > .add {
+          height: 6rem;
+          width: 6rem;
+          text-align: center;
+          line-height: 6rem;
+          border-radius: 0.3rem;
+          background: #ccc;
+          transition: all 0.3s ease;
+          & > .btn--add {
+            padding: 0.3rem 0.6rem;
+            border-radius: 50%;
+            background-color: #3a6fe6;
+            > .fa {
+              color: #fff;
+            }
+          }
+        }
+      }
+      & > .status-icon {
+        width: 10%;
+        text-align: center;
+        font-size: 1.8rem;
+        & > .fa-exclamation-circle {
+          color: $color-danger;
+        }
+        & > .fa-check-circle {
+          color: $color-success;
+        }
+      }
+    }
+  }
+}

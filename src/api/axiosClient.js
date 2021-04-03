@@ -40,3 +40,10 @@ provinceAxiosClient.interceptors.response.use(
     throw error;
   }
 );
+
+export const uploadAxiosClient = axios.create({
+  baseURL: "https://api.cloudinary.com/v1_1/august-ecommerce",
+  headers: {
+    "Content-type": "application/json",
+  },
+});

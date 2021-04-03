@@ -22,6 +22,7 @@ export const registerSchema = Yup.object().shape({
     [Yup.ref("password")],
     "Mật khẩu không khớp"
   ),
+  urlAvatar: Yup.array().max(1),
 });
 
 export const RatingSchema = Yup.object().shape({
