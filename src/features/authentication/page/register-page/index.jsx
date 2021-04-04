@@ -15,7 +15,7 @@ const initValue = {
   email: "",
   password: "",
   passwordConfirm: "",
-  urlAvatar: [],
+  urlAvatar: "",
 };
 
 function RegisterPage() {
@@ -51,11 +51,8 @@ function RegisterPage() {
       >
         {({ setFieldValue }) => {
           const setValue = (result) => {
-            const arrUrlImg = [];
-            result.forEach((item) => {
-              arrUrlImg.push(item.data["secure_url"]);
-            });
-            setFieldValue("urlAvatar", arrUrlImg);
+            const urlImg = result[0].data["secure_url"];
+            setFieldValue("urlAvatar", urlImg);
             setShowDialog(false);
           };
           return (

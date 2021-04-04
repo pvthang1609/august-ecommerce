@@ -17,7 +17,7 @@ export default function Auth() {
   const { user } = useSelector((state) => state.authentication);
   const match = useRouteMatch();
   return (
-    <main style={{ paddingTop: "7.1rem" }}>
+    <main>
       <div className="grid wide">
         <div className="row">
           <div className="col l-12">

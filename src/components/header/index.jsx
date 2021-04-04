@@ -61,7 +61,7 @@ function Header() {
               </div>
               <div className="user-item user-info">
                 <Link to={!user ? "/auth/login" : "#"}>
-                  <i className="fa fa-user" aria-hidden="true"></i>
+                  <img src={user.urlAvatar} alt="" />
                 </Link>
                 {user ? <span>{user.name}</span> : <span>Login</span>}
                 <div className="user-info__sub">

@@ -7,12 +7,12 @@ ImageField.propTypes = {
   handleClose: PropTypes.func.isRequired,
   form: PropTypes.object,
   field: PropTypes.object,
+  multiple: PropTypes.bool,
 };
 
 function ImageField(props) {
-  const { label, handleClose, form, field } = props;
+  const { label, handleClose, field, multiple = false } = props;
   const { value } = field;
-  console.log({ form, field });
   return (
     <div className="image-field">
       <div className="image-field__icon">
@@ -25,7 +25,7 @@ function ImageField(props) {
         </div>
         <div className="content-main">
           <div className="image-review">
-            {value &&
+            {value && multiple ? (
               value.map((item, index) => {
                 return (
                   <div className="image" key={index}>
@@ -35,7 +35,15 @@ function ImageField(props) {
                     </button>
                   </div>
                 );
-              })}
+              })
+            ) : (
+              <div className="image">
+                <img src={value} alt="" />
+                <button type="button" className="btn btn--close">
+                  <i className="fa fa-times" aria-hidden="true"></i>
+                </button>
+              </div>
+            )}
             <div
               className="add"
               style={

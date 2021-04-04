@@ -41,6 +41,9 @@
     text-align: center;
     border-radius: 50%;
     font-size: 1.8rem;
+    & > img {
+      border-radius: 50%;
+    }
   }
   & ~ .user-item {
     margin-left: 0.8rem;
