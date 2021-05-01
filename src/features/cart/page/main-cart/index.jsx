@@ -1,20 +1,19 @@
-import React, { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import "./main-cart.scss";
-
-import { convertPrice, getNo, sum } from "custom-hooks/globalFunc";
-import { Link, useHistory } from "react-router-dom";
-import box from "assets/image/box.svg";
-import classNames from "classnames";
-import freeDelivery from "assets/image/free-delivery.svg";
-import discount from "assets/image/discount.svg";
 import { editToCart, removeToCart } from "actions/cartAction";
-import { editToInvoice } from "actions/paymentAction";
-import discountApi from "api/discountApi";
 import {
   notificationFail,
   notificationSuccess,
 } from "actions/notificationAction";
+import { addInfoToOrder } from "actions/orderAction";
+import discountApi from "api/discountApi";
+import box from "assets/image/box.svg";
+import discount from "assets/image/discount.svg";
+import freeDelivery from "assets/image/free-delivery.svg";
+import classNames from "classnames";
+import { convertPrice, sum } from "custom-hooks/globalFunc";
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import "./main-cart.scss";
 
 export default function MainCart() {
   const [discountCode, setDiscountCode] = useState(null);
@@ -38,10 +37,9 @@ export default function MainCart() {
   const handleNextClick = () => {
     const discount = discountCode ? discountCode : null;
     dispatch(
-      editToInvoice({
-        no: getNo(),
+      addInfoToOrder({
         order: cart,
-        status: "đợi kiểm tra",
+        status: "waiting",
         discount: discount,
       })
     );

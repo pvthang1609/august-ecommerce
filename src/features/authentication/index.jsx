@@ -5,6 +5,7 @@ import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
 import LoginPage from "./page/login-page";
 import RegisterPage from "./page/register-page";
 import authImg from "assets/image/login/login.svg";
+// import AdminPage from "./page/admin-page";
 
 const BREADCRUMBS_LIST = [
   {

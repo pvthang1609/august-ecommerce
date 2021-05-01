@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "features/cart/cartSlice";
 import notificationReducer from "features/notification/notificationSlice";
 import authReducer from "features/authentication/authSlice";
-import invoiceReducer from "features/checkout/page/invoiceSlide";
+import orderReducer from "features/order/orderSlide";
 import productReducer from "features/product/productSlice";
 import ratingReducer from "features/rating/ratingSlice";
 
@@ -10,7 +10,7 @@ const rootReducer = {
   cart: cartReducer,
   notification: notificationReducer,
   authentication: authReducer,
-  invoice: invoiceReducer,
+  order: orderReducer,
   product: productReducer,
   rating: ratingReducer,
 };

@@ -1,10 +1,10 @@
 import { axiosClient } from "./axiosClient";
 
-const invoiceApi = {
+const orderApi = {
   post: (data) => {
-    const url = "/invoice";
+    const url = "/order";
     return axiosClient.post(url, data);
   },
 };
 
-export default invoiceApi;
+export default orderApi;

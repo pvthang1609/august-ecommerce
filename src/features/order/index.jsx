@@ -13,7 +13,7 @@ import "./checkout.scss";
 import ShippingPage from "./page/shipping";
 import { useSelector } from "react-redux";
 import PaymentMethodPage from "./page/payment-method";
-import OrderSummary from "features/checkout/components/order-summary";
+import OrderSummary from "features/order/components/order-summary";
 import classNames from "classnames";
 import CompletedOrderPage from "./page/completed-order";
 

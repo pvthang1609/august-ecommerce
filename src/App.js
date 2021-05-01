@@ -8,7 +8,7 @@ import "./app.scss";
 import UploadFile from "features/upload/component/UploadFile";
 
 const Product = React.lazy(() => import("features/product"));
-const Checkout = React.lazy(() => import("features/checkout"));
+const Checkout = React.lazy(() => import("features/order"));
 const Auth = React.lazy(() => import("features/authentication"));
 const Cart = React.lazy(() => import("features/cart"));
 

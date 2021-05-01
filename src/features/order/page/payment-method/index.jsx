@@ -1,23 +1,20 @@
-import React, { useEffect, useState } from "react";
-import "./paying.scss";
+import { addInfoToOrder } from "actions/orderAction";
 import deliveryTruck from "assets/image/delivery-truck.svg";
-import ZaloPay_Logo from "assets/image/payment-logo/ZaloPay_Logo.svg";
+import JCB_Logo from "assets/image/payment-logo/JCB_Logo.svg";
+import Mastercard_Logo from "assets/image/payment-logo/Mastercard_Logo.svg";
 import Momo_Logo from "assets/image/payment-logo/Momo_Logo.svg";
 import Visa_Debit_Logo from "assets/image/payment-logo/Visa_Debit_Logo.svg";
-import Mastercard_Logo from "assets/image/payment-logo/Mastercard_Logo.svg";
-import JCB_Logo from "assets/image/payment-logo/JCB_Logo.svg";
-import { FastField, Form, Formik } from "formik";
+import ZaloPay_Logo from "assets/image/payment-logo/ZaloPay_Logo.svg";
 import classNames from "classnames";
-import CreditCard from "features/checkout/components/credit-card";
-import CustomTextAddress from "features/checkout/components/custom-text-address";
-import * as yup from "yup";
-import { useDispatch } from "react-redux";
-import { editToInvoice } from "actions/paymentAction";
 import { removeVietnameseTones } from "custom-hooks/globalFunc";
-// import { useHistory } from "react-router-dom";
-import DialogTerms from "features/checkout/components/dialog-terms";
-
-// import PropTypes from "prop-types";
+import CreditCard from "features/order/components/credit-card";
+import CustomTextAddress from "features/order/components/custom-text-address";
+import DialogTerms from "features/order/components/dialog-terms";
+import { FastField, Form, Formik } from "formik";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import * as yup from "yup";
+import "./paying.scss";
 
 const initValues = {
   paymentMethod: "",
@@ -62,7 +59,6 @@ const handlePrevClick = () => {
 
 function PaymentMethodPage() {
   const dispatch = useDispatch();
-  // const history = useHistory();
   const [isDialog, setIsDialog] = useState(false);
 
   useEffect(() => {
@@ -77,7 +73,7 @@ function PaymentMethodPage() {
     const { paymentMethod, detail } = value;
     if (paymentMethod === "creditCard") {
       dispatch(
-        editToInvoice({
+        addInfoToOrder({
           status: "chưa thanh toán",
           payment: {
             method: "creditCard",
@@ -89,11 +85,9 @@ function PaymentMethodPage() {
       );
     } else {
       dispatch(
-        editToInvoice({
-          status: "chưa thanh toán",
-          payment: {
-            method: paymentMethod,
-          },
+        addInfoToOrder({
+          status: "unpaid",
+          payment: paymentMethod,
         })
       );
     }

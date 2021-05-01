@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import completedTask from "assets/image/completed-task.svg";
-import "./completed-order.scss";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { removeToCart } from "actions/cartAction";
-import { removeToInvoice } from "actions/paymentAction";
+import { clearOrderInState } from "actions/orderAction";
+import completedTask from "assets/image/completed-task.svg";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import "./completed-order.scss";
 // import PropTypes from "prop-types";
 
 CompletedOrderPage.propTypes = {};
@@ -17,7 +17,7 @@ function CompletedOrderPage() {
   useEffect(() => {
     document.body.style.overflow = "auto";
     if (!count) {
-      dispatch(removeToInvoice());
+      dispatch(clearOrderInState());
       dispatch(removeToCart());
       history.go(0);
       return;

@@ -1,14 +1,14 @@
 import React from "react";
 import "./shipping.scss";
 import { Formik, Form, Field, FastField } from "formik";
-import CusSelectAdd from "features/checkout/components/custom-select-address";
+import CusSelectAdd from "features/order/components/custom-select-address";
 import PropTypes from "prop-types";
-import CustomTextAddress from "features/checkout/components/custom-text-address";
+import CustomTextAddress from "features/order/components/custom-text-address";
 import viettelpost from "assets/image/logistics/vietel.png";
 import ghtk from "assets/image/logistics/ghtk.png";
 import jtex from "assets/image/logistics/j-t-express.png";
 import classNames from "classnames";
-import { editToInvoice } from "actions/paymentAction";
+import { addInfoToOrder } from "actions/orderAction";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
@@ -61,7 +61,7 @@ function ShippingPage() {
       ward,
     } = values;
     dispatch(
-      editToInvoice({
+      addInfoToOrder({
         name: name,
         tel: tel,
         email: email,

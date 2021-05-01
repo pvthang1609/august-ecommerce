@@ -3,7 +3,7 @@ import "./dialog-terms.scss";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
-import { addInvoiceToServer } from "actions/paymentAction";
+import { addOrderToServer } from "actions/orderAction";
 import { useHistory } from "react-router-dom";
 
 DialogTerms.propTypes = {
@@ -44,7 +44,7 @@ function DialogTerms({ hiddenDialog }) {
 
   const handleAcceptClick = () => {
     if (checked) {
-      dispatch(addInvoiceToServer());
+      dispatch(addOrderToServer());
       history.push("completed");
     }
   };

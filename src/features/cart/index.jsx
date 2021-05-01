@@ -9,7 +9,7 @@ Cart.propTypes = {};
 function Cart() {
   const match = useRouteMatch();
   return (
-    <main className="grid wide" style={{ paddingTop: "7.1rem" }}>
+    <main className="grid wide">
       <div className="row">
         <div className="col l-12 m-12 s-12">
           <BreadCrumbs list={[{ name: "Giỏ Hàng", url: "/cart" }]} />
