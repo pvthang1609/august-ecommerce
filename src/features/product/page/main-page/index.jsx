@@ -81,9 +81,7 @@ export default function MainPage() {
       </ProductList>
       <section className="grid pading--1">
         <div className="row no-gutters">
-          <div className="col l-12 m-12 s-12">
-            <CountdownBanner />
-          </div>
+          <div className="col l-12 m-12 s-12">{/* <CountdownBanner /> */}</div>
         </div>
       </section>
       <section className="grid wide">

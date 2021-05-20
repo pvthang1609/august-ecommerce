@@ -1,20 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap");
 
 $font-primary: "Open Sans", sans-serif;
 $font-secondary: "Comfortaa", cursive;
-$font-banner: 'Passion One', cursive;
-
+$font-banner: "Passion One", cursive;
 
 $font-logo: "Oleo Script Swash Caps", cursive;
 $font-credit-card: "Share Tech Mono", monospace;
 
-$color-text: #1e1e27;
-$color-background: #1a3c3d;
-$color-primary: #d89c0f;
-$color-secondary: #f55d5c;
+$color-text: #404040;
 
 $color-success: #00c292;
 $color-danger: #c00504;
@@ -29,4 +25,10 @@ $shadow-border: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
   display: flex;
   justify-content: $justify;
   align-items: $align;
-} ;
+}
+
+$inactive-color: #606266;
+$default-color: #e4e6eb;
+$color-primary: #f55d5c;
+$color-secondary: #1877f2;
+$default-transition: all 0.3s ease;

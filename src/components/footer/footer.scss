@@ -17,7 +17,7 @@
     font-weight: 700;
   }
   &__item > ul > li > a:hover {
-    color: $color-secondary;
+    color: $default-color;
     text-decoration: underline;
   }
 }

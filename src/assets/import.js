@@ -1,10 +1,10 @@
-export { default as Logo } from "components/logo";
-export { default as Navbar } from "components/nav-bar";
+export { default as Logo } from "components/Logo.js";
+export { default as Navbar } from "components/Navbar.js";
 export { default as NotFound } from "components/404";
-export { default as SearchBar } from "components/search-bar";
+export { default as SearchBar } from "components/SearchBar";
 export { default as BrandLogo } from "components/brand-logo";
 export { default as Banner } from "components/banner";
-export { default as Header } from "components/header";
+export { default as Header } from "components/Header";
 export { default as Footer } from "components/footer";
 
 export { default as ProductSlideShow } from "features/product/components/product-slideshow";

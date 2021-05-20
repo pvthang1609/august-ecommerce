@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-openSans {
+  font-family: "Open Sans", serif;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border font-openSans;
+  }
+  body {
+    @apply bg-gray-50 text-gray-700 dark:text-gray-300 dark:bg-gray-800;
+  }
+  a {
+    @apply block no-underline;
+  }
+  img {
+    @apply block max-w-full;
+  }
+  button {
+    @apply hover:filter hover:brightness-95;
+    @apply transition duration-300 active:transform active:scale-95;
+    outline: none !important;
+  }
+}
+
+@layer components {
+  .link-button {
+    @apply bg-gray-200 p-2 rounded-full hover:filter hover:brightness-95 transition duration-300 active:transform active:scale-95 dark:bg-gray-800;
+  }
+}
